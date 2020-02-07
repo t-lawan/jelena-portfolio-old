@@ -16,6 +16,7 @@ const HeaderTitleContainer = styled.div`
 
 const HeaderLink = styled.a`
     font-size: 1.4rem;
+    font-style: italic;
 `
 
 const HeaderTitle = styled.p`
