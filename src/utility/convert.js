@@ -1,5 +1,6 @@
 import { HeaderLink } from "../models/HeaderLink";
 import { SidebarLink } from "../models/SidebarLink";
+import { JumbotronContent } from "../models/JumbotronContent";
 
 export class Convert {
     static toHeaderLinkModel = contentfulModel => {
@@ -12,12 +13,24 @@ export class Convert {
         );
     }
 
+    static toJumbotronContentModel = contentfulModel => {
+        return new JumbotronContent(
+            contentfulModel.contentful_id,
+            contentfulModel.title,
+            contentfulModel.type,
+            contentfulModel.text,
+            contentfulModel.image,
+        );
+    }
+
     static toSidebarLinkModel = contentfulModel => {
         return new SidebarLink(
             contentfulModel.contentful_id,
             contentfulModel.order,
             contentfulModel.title,
-            contentfulModel.url
+            contentfulModel.url,
+            contentfulModel.isEmail,
+            contentfulModel.email,
         );
     }
     static toModelArray = (query, modelConverter) => {

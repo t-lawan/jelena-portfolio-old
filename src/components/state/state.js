@@ -25,6 +25,32 @@ const State = props => {
               order
               title
               url
+              isEmail
+              email
+            }
+          }
+        }
+        allContentfulJumbotronContent {
+          edges {
+            node {
+              contentful_id
+              title
+              type
+              image {
+                fluid {
+                  aspectRatio
+                  base64
+                  sizes
+                  src
+                  srcSet
+                  srcSetWebp
+                  srcWebp
+                  tracedSVG
+                }
+              }
+              text {
+                json
+              }
             }
           }
         }
@@ -32,7 +58,11 @@ const State = props => {
     `
   )
   if (!props.isLoaded) {
-    let { allContentfulHeaderLinks, allContentfulSidebarLinks } = data
+    let {
+      allContentfulHeaderLinks,
+      allContentfulSidebarLinks,
+      allContentfulJumbotronContent,
+    } = data
 
     let headerLinks = Convert.toModelArray(
       allContentfulHeaderLinks,
@@ -43,10 +73,16 @@ const State = props => {
     let sidebarLinks = Convert.toModelArray(
       allContentfulSidebarLinks,
       Convert.toSidebarLinkModel
-    );
-    props.setSidebarLinks(sidebarLinks);
+    )
+    props.setSidebarLinks(sidebarLinks)
 
-    props.loaded();
+    let jumbotronContent = Convert.toModelArray(
+      allContentfulJumbotronContent,
+      Convert.toJumbotronContentModel
+    )
+
+    props.setJumbotronContent(jumbotronContent)
+    props.loaded()
   }
 
   return <></>
@@ -69,6 +105,12 @@ const mapDispatchToProps = dispatch => {
       dispatch({
         type: ActionTypes.SET_SIDEBAR_LINKS,
         sidebar_links: sidebar_links,
+      }),
+
+    setJumbotronContent: jumbotron_content =>
+      dispatch({
+        type: ActionTypes.SET_JUMBOTRON_CONTENT,
+        jumbotron_content: jumbotron_content,
       }),
     loaded: () =>
       dispatch({

@@ -7,9 +7,12 @@ import State from "../state/state";
 
 const LayoutWrapper = styled.div`
     padding: 1rem;
+    height: 100vh;
+    width: 100vw;
 `
 
 const MainWrapper = styled.main`
+    padding: 0.5rem;
     
 `
 const Layout = (props) => {

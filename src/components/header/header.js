@@ -27,12 +27,11 @@ const Header = (props) => {
         return a.order - b.order;
     });
 
-    console.log('PRO', links);
   return (
     <HeaderWrapper>
       <HeaderTitleContainer>
       {links.map((link, index) => (
-         link.externalLink ? <HeaderLink href={link.url} target="__blank" key={index}> {link.title} </HeaderLink> : <HeaderTitle key={index}> {link.title} </HeaderTitle> 
+         link.externalLink ? <HeaderLink href={link.url} target="__blank" key={index}> {link.title.toUpperCase()} </HeaderLink> : <HeaderTitle key={index}> {link.title.toUpperCase()} </HeaderTitle> 
       ))}
       </HeaderTitleContainer>
     </HeaderWrapper>

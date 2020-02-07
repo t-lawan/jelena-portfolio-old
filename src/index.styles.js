@@ -1,13 +1,13 @@
-import { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css?family=Lora:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
     * {
   box-sizing: border-box;
 }
 html,
 body {
-  font-family: 'Lora', serif;
+    font-family: 'Lato', sans-serif;
   width: 100vw;
   width: 100%;
   height: 100%;
@@ -94,3 +94,9 @@ export const size = {
   laptopL: "1440px",
   desktop: "2560px",
 }
+
+export const TwoColumnSection= styled.div`
+    display: grid;
+    grid-template-columns: 8fr 3fr;
+    margin-top: 5rem;
+`

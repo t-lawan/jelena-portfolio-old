@@ -4,6 +4,7 @@ const initalState = {
   pages: [],
   sidebar_links: [],
   header_links: [],
+  jumbotron_content: [],
   show_modal: false,
   isLoaded: false,
 }
@@ -21,6 +22,10 @@ const reducer = (state = initalState, action) => {
     case ActionTypes.SET_HEADER_LINKS:
       return Object.assign({}, state, {
         header_links: action.header_links,
+      })
+    case ActionTypes.SET_JUMBOTRON_CONTENT:
+      return Object.assign({}, state, {
+        jumbotron_content: action.jumbotron_content,
       })
     case ActionTypes.SHOW_MODAL:
       return Object.assign({}, state, {
