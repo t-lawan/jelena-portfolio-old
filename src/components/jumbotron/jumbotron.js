@@ -31,7 +31,6 @@ const ModalHeader = styled.div`
 const ModalBody = styled.div``
 const JumbotronUnderlay = styled.div`
   display: ${props => (props.show ? "inherit" : "none")};
-  background: pink;
   width: auto;
   height: 100%;
 `
