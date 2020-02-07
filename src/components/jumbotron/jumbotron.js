@@ -56,8 +56,8 @@ const Jumbotron = props => {
 
   return (
     <JumbotronWrapper>
-      <JumbotronModal show={props.show_modal}>
-        <ModalHeader>
+      <JumbotronModal  show={props.show_modal}>
+        <ModalHeader >
           <ImageContainer>
             <img src={CloseIcon} onClick={() => props.toggleModal()} />
           </ImageContainer>
@@ -67,7 +67,7 @@ const Jumbotron = props => {
           {documentToReactComponents(bio.text.json, richTextOptions)}
         </ModalBody>
       </JumbotronModal>
-      <JumbotronUnderlay show={!props.show_modal}>
+      <JumbotronUnderlay onClick={() => props.toggleModal()} show={!props.show_modal}>
         <Img fluid={image.image.fluid} />
       </JumbotronUnderlay>
     </JumbotronWrapper>
