@@ -30,11 +30,17 @@ const reducer = (state = initalState, action) => {
       return Object.assign({}, state, {
         show_modal: false,
       })
+    case ActionTypes.IS_LOADED:
+      return Object.assign({}, state, {
+        isLoaded: true,
+      })
+    default:
+      return state
   }
 }
 
 export const store = () =>
   createStore(
     reducer,
-    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
