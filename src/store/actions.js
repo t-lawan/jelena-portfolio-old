@@ -4,4 +4,5 @@ export const SET_HEADER_LINKS = "SET_HEADER_LINKS";
 export const SET_JUMBOTRON_CONTENT = "SET_JUMBOTRON_CONTENT";
 export const IS_LOADED = "IS_LOADED";
 export const SHOW_MODAL = "SHOW_MODAL";
-export const HIDE_MODAL = "HIDE_MODAL" 
+export const HIDE_MODAL = "HIDE_MODAL";
+export const TOGGLE_MODAL = "TOGGLE_MODAL";

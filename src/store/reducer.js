@@ -35,6 +35,10 @@ const reducer = (state = initalState, action) => {
       return Object.assign({}, state, {
         show_modal: false,
       })
+    case ActionTypes.TOGGLE_MODAL:
+      return Object.assign({}, state, {
+        show_modal: !state.show_modal,
+      })
     case ActionTypes.IS_LOADED:
       return Object.assign({}, state, {
         isLoaded: true,

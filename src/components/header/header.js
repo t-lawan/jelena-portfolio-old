@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { connect } from "react-redux"
-
+import * as ActionTypes from '../../store/actions';
 const HeaderWrapper = styled.header`
   padding: 0.5rem;
   padding-top: 1rem;
@@ -20,6 +20,9 @@ const HeaderLink = styled.a`
 
 const HeaderTitle = styled.p`
     font-size: 1.4rem;
+    :hover {
+     cursor: pointer;
+    }
 `
 const Header = (props) => {
     let links = props.headerLinks;
@@ -31,7 +34,7 @@ const Header = (props) => {
     <HeaderWrapper>
       <HeaderTitleContainer>
       {links.map((link, index) => (
-         link.externalLink ? <HeaderLink href={link.url} target="__blank" key={index}> {link.title.toUpperCase()} </HeaderLink> : <HeaderTitle key={index}> {link.title.toUpperCase()} </HeaderTitle> 
+         link.externalLink ? <HeaderLink href={link.url} target="__blank" key={index}> {link.title.toUpperCase()} </HeaderLink> : <HeaderTitle onClick={() => props.toggleModal()} key={index}> {link.title.toUpperCase()} </HeaderTitle> 
       ))}
       </HeaderTitleContainer>
     </HeaderWrapper>
@@ -40,7 +43,16 @@ const Header = (props) => {
 const mapStateToProps = state => {
   return {
     isLoaded: state.isLoaded,
-    headerLinks: state.header_links
+    headerLinks: state.header_links,
   }
 }
-export default connect(mapStateToProps, null)(Header)
+
+const mapDispatchToProps = dispatch => {
+  return {
+    toggleModal: () =>
+      dispatch({
+        type: ActionTypes.TOGGLE_MODAL,
+      }),
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

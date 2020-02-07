@@ -20,7 +20,6 @@ const Links = props => {
       return a.order - b.order;
   });
 
-  console.log('XX', sidebarLinks);
   return (
     <LinkWrapper>
       {sidebarLinks.map((li, index) => (

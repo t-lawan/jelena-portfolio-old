@@ -38,14 +38,11 @@ const State = props => {
               type
               image {
                 fluid {
-                  aspectRatio
                   base64
-                  sizes
+                  aspectRatio
                   src
                   srcSet
-                  srcSetWebp
-                  srcWebp
-                  tracedSVG
+                  sizes
                 }
               }
               text {
