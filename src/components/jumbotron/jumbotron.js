@@ -9,6 +9,9 @@ import CloseIcon from "../../images/close_overlay.svg"
 const JumbotronWrapper = styled.section`
   /* padding: 1rem; */
   height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 `
 
 const JumbotronModal = styled.div`
