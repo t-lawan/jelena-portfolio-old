@@ -28,7 +28,10 @@ const ModalHeader = styled.div`
   justify-content: flex-end;
 `
 
-const ModalBody = styled.div``
+const ModalBody = styled.div`
+    overflow-y: scroll;
+    height: inherit;
+`
 const JumbotronUnderlay = styled.div`
   display: ${props => (props.show ? "inherit" : "none")};
   width: auto;
