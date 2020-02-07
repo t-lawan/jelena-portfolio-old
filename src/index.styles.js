@@ -98,5 +98,5 @@ export const size = {
 export const TwoColumnSection= styled.div`
     display: grid;
     grid-template-columns: 8fr 3fr;
-    margin-top: 5rem;
+    /* margin-top: 2rem; */
 `

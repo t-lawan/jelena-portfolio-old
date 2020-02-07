@@ -5,7 +5,6 @@ import styled from 'styled-components';
 const PARAGRAPH = styled.p`
   margin-bottom: 1.5rem;
   line-height: 1.2rem;
-  color: red;
 `
 
 const EXTERNALLINK = styled.a`

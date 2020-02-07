@@ -21,7 +21,7 @@ const JumbotronModal = styled.div`
   /* background: yellow; */
   z-index: 1000;
   padding: 1rem;
-  display: ${props => (props.show ? "inherit" : "none")};
+  display: ${props => (props.show ? "" : "none")};
 `
 
 const ModalHeader = styled.div`
@@ -34,16 +34,19 @@ const ModalHeader = styled.div`
 const ModalBody = styled.div`
     overflow-y: scroll;
     height: inherit;
+    scrollbar-width: none;
 `
 const JumbotronUnderlay = styled.div`
-  display: ${props => (props.show ? "inherit" : "none")};
+  display: ${props => (props.show ? "" : "none")};
   width: auto;
-  height: 100%;
+  max-height: 100%;
+  padding-bottom: 1rem;
 `
 
-const ImageContainer = styled.div`
-  width: 2%;
+const CloseImageContainer = styled.div`
+  width: 3%;
 `
+
 const Jumbotron = props => {
   let content = props.jumbotronContent
   let image = content.find(im => {
@@ -54,16 +57,13 @@ const Jumbotron = props => {
     return bi.type === "Bio"
   })
 
-  console.log("bio", bio)
-  console.log("image", image)
-
   return (
     <JumbotronWrapper>
       <JumbotronModal  show={props.show_modal}>
         <ModalHeader >
-          <ImageContainer>
+          <CloseImageContainer>
             <img src={CloseIcon} onClick={() => props.toggleModal()} />
-          </ImageContainer>
+          </CloseImageContainer>
         </ModalHeader>
 
         <ModalBody>
