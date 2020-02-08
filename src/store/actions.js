@@ -6,3 +6,7 @@ export const IS_LOADED = "IS_LOADED";
 export const SHOW_MODAL = "SHOW_MODAL";
 export const HIDE_MODAL = "HIDE_MODAL";
 export const TOGGLE_MODAL = "TOGGLE_MODAL";
+
+export const SHOW_MOBILE_MODAL = "SHOW_MOBILE_MODAL";
+export const HIDE_MOBILE_MODAL = "HIDE_MOBILE_MODAL";
+export const TOGGLE_MOBILE_MODAL = "TOGGLE_MOBILE_MODAL";

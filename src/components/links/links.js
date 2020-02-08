@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { connect } from "react-redux"
+import { size } from "../../index.styles";
 
 const LinkWrapper = styled.div`
   padding: 1rem;
@@ -8,6 +9,9 @@ const LinkWrapper = styled.div`
   flex-direction: column;
   text-align: right;
   justify-content: flex-end;
+  @media (max-width: ${size.tablet}) {
+    display: ${props => (props.hideInMobile ? "none" : "flex")};
+  }
 `
 
 const ExternalLink = styled.a`
@@ -21,7 +25,7 @@ const Links = props => {
   });
 
   return (
-    <LinkWrapper>
+    <LinkWrapper hideInMobile={props.hideInMobile}>
       {sidebarLinks.map((li, index) => (
         <ExternalLink href={li.isEmail ? `mailto:${li.email}` : li.url} target="__blank" key={index}> {li.title} </ExternalLink>
       ))}

@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 import { GlobalStyle } from "../../index.styles";
 import Header from "../header/header";
 import State from "../state/state";
+import Modal from "../modal/modal";
 
 const LayoutWrapper = styled.div`
     padding: 1rem;
@@ -20,6 +21,7 @@ const Layout = (props) => {
         <LayoutWrapper> 
             <GlobalStyle />
             <Header />
+            <Modal />
             <State />
             <MainWrapper>
                 {props.children}

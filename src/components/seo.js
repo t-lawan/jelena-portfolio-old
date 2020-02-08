@@ -8,32 +8,17 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
-      }
-    `
-  )
-
-  const metaDescription = description || site.siteMetadata.description
-
+function SEO({ description, lang }) {
+  const metaDescription =
+    "Jelena Viskovic is an artist working with storytelling and world-building. She uses video game engines to build new social research tools, virtual worlds, and social organizational platforms. Her games Nirgendheim and Chimera use architectural structures, characters, and game mechanics to provide unexpected ways of interacting with opaque technological systems of control. Her collaborative projects have been commissioned by the V&A (UK), Rhizome (US), the New Institute (Netherlands), and Akademie Schloss Solitude (Germany). Viskovic is a visiting lecturer at the Royal College of Art (UK) and the AA School of Architecture (UK)."
+  let title = "Jelena Viskovic";
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
           name: `description`,
@@ -56,10 +41,6 @@ function SEO({ description, lang, meta, title }) {
           content: `summary`,
         },
         {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
           name: `twitter:title`,
           content: title,
         },
@@ -67,7 +48,7 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+      ]}
     />
   )
 }

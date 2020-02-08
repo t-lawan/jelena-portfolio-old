@@ -6,12 +6,16 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { richTextOptions } from "../../utility/richtext"
 import * as ActionTypes from "../../store/actions"
 import CloseIcon from "../../images/close_overlay.svg"
+import { size } from "../../index.styles"
 const JumbotronWrapper = styled.section`
   /* padding: 1rem; */
   height: 70vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
+  @media (max-width: ${size.tablet}) {
+    justify-content: center;
+  }
 `
 
 const JumbotronModal = styled.div`
@@ -19,7 +23,7 @@ const JumbotronModal = styled.div`
   width: 100%;
   height: 100%;
   /* background: yellow; */
-  z-index: 1000;
+  z-index: 500;
   padding: 1rem;
   display: ${props => (props.show ? "" : "none")};
 `
@@ -32,9 +36,9 @@ const ModalHeader = styled.div`
 `
 
 const ModalBody = styled.div`
-    overflow-y: scroll;
-    height: inherit;
-    scrollbar-width: none;
+  overflow-y: scroll;
+  height: inherit;
+  scrollbar-width: none;
 `
 const JumbotronUnderlay = styled.div`
   display: ${props => (props.show ? "" : "none")};
@@ -43,8 +47,19 @@ const JumbotronUnderlay = styled.div`
   padding-bottom: 1rem;
 `
 
+const ImageTitle = styled.p`
+  display: none;
+  font-style: italic;
+  @media (max-width: ${size.tablet}) {
+    display: inherit;
+  }
+`
+
 const CloseImageContainer = styled.div`
   width: 3%;
+  @media (max-width: ${size.tablet}) {
+    width: 5%;
+  }
 `
 
 const Jumbotron = props => {
@@ -59,8 +74,8 @@ const Jumbotron = props => {
 
   return (
     <JumbotronWrapper>
-      <JumbotronModal  show={props.show_modal}>
-        <ModalHeader >
+      <JumbotronModal show={props.show_modal}>
+        <ModalHeader>
           <CloseImageContainer>
             <img src={CloseIcon} onClick={() => props.toggleModal()} />
           </CloseImageContainer>
@@ -70,7 +85,11 @@ const Jumbotron = props => {
           {documentToReactComponents(bio.text.json, richTextOptions)}
         </ModalBody>
       </JumbotronModal>
-      <JumbotronUnderlay onClick={() => props.toggleModal()} show={!props.show_modal}>
+      <JumbotronUnderlay
+        onClick={() => props.toggleModal()}
+        show={!props.show_modal}
+      >
+        <ImageTitle> {image.title} </ImageTitle>
         <Img fluid={image.image.fluid} />
       </JumbotronUnderlay>
     </JumbotronWrapper>

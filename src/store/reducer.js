@@ -7,6 +7,7 @@ const initalState = {
   jumbotron_content: [],
   show_modal: false,
   isLoaded: false,
+  show_mobile_modal: false,
 }
 
 const reducer = (state = initalState, action) => {
@@ -39,6 +40,18 @@ const reducer = (state = initalState, action) => {
       return Object.assign({}, state, {
         show_modal: !state.show_modal,
       })
+    case ActionTypes.SHOW_MOBILE_MODAL:
+      return Object.assign({}, state, {
+        show_mobile_modal: true,
+      })
+    case ActionTypes.HIDE_MOBILE_MODAL:
+      return Object.assign({}, state, {
+        show_mobile_modal: false,
+      })
+    case ActionTypes.TOGGLE_MOBILE_MODAL:
+      return Object.assign({}, state, {
+        show_mobile_modal: !state.show_mobile_modal,
+      })
     case ActionTypes.IS_LOADED:
       return Object.assign({}, state, {
         isLoaded: true,
@@ -51,5 +64,5 @@ const reducer = (state = initalState, action) => {
 export const store = () =>
   createStore(
     reducer,
-    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )

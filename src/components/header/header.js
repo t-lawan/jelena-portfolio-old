@@ -1,7 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import { connect } from "react-redux"
-import * as ActionTypes from '../../store/actions';
+import * as ActionTypes from "../../store/actions"
+import { HamburgerBoring } from "react-animated-burgers"
+import { size } from "../../index.styles"
 const HeaderWrapper = styled.header`
   padding: 0.5rem;
   padding-top: 1rem;
@@ -12,31 +14,64 @@ const HeaderTitleContainer = styled.div`
   flex-direction: row;
   /* align-content: space-around; */
   justify-content: space-between;
+  align-items: baseline;
 `
 
 const HeaderLink = styled.a`
-    font-size: 1.4rem;
-    font-style: italic;
+  font-size: 1.4rem;
+  font-style: italic;
+  @media (max-width: ${size.tablet}) {
+    display: ${props => (props.hideInMobile ? "none" : "inherit")};
+  }
 `
 
 const HeaderTitle = styled.p`
-    font-size: 1.4rem;
-    :hover {
-     cursor: pointer;
-    }
+  font-size: 1.4rem;
+  :hover {
+    cursor: pointer;
+  }
 `
-const Header = (props) => {
-    let links = props.headerLinks;
-    links = links.sort((a, b) => {
-        return a.order - b.order;
-    });
+
+const Hamburger = styled(HamburgerBoring)`
+  display: none;
+  @media (max-width: ${size.tablet}) {
+    display: ${props => (props.showInMobile ? "inherit" : "none")};
+  }
+`
+const Header = props => {
+  let links = props.headerLinks
+  links = links.sort((a, b) => {
+    return a.order - b.order
+  })
 
   return (
     <HeaderWrapper>
       <HeaderTitleContainer>
-      {links.map((link, index) => (
-         link.externalLink ? <HeaderLink href={link.url} target="__blank" key={index}> {link.title.toUpperCase()} </HeaderLink> : <HeaderTitle onClick={() => props.toggleModal()} key={index}> {link.title.toUpperCase()} </HeaderTitle> 
-      ))}
+        <Hamburger
+          toggleButton={props.toggleMobileModal}
+          showInMobile={true}
+          isActive={props.show_mobile_modal}
+          barColor="black"
+          buttonWidth={30}
+        />
+        {links.map((link, index) =>
+          link.externalLink ? (
+            <HeaderLink
+              hideInMobile
+              href={link.url}
+              target="__blank"
+              key={index}
+            >
+              {" "}
+              {link.title.toUpperCase()}{" "}
+            </HeaderLink>
+          ) : (
+            <HeaderTitle onClick={() => props.toggleModal()} key={index}>
+              {" "}
+              {link.title.toUpperCase()}{" "}
+            </HeaderTitle>
+          )
+        )}
       </HeaderTitleContainer>
     </HeaderWrapper>
   )
@@ -45,6 +80,7 @@ const mapStateToProps = state => {
   return {
     isLoaded: state.isLoaded,
     headerLinks: state.header_links,
+    show_mobile_modal: state.show_mobile_modal,
   }
 }
 
@@ -53,6 +89,14 @@ const mapDispatchToProps = dispatch => {
     toggleModal: () =>
       dispatch({
         type: ActionTypes.TOGGLE_MODAL,
+      }),
+    toggleMobileModal: () =>
+      dispatch({
+        type: ActionTypes.TOGGLE_MOBILE_MODAL,
+      }),
+    showMobileModal: () =>
+      dispatch({
+        type: ActionTypes.SHOW_MOBILE_MODAL,
       }),
   }
 }
