@@ -6,7 +6,11 @@ import { HamburgerBoring } from "react-animated-burgers"
 import { size } from "../../index.styles"
 const HeaderWrapper = styled.header`
   padding: 0.5rem;
+  @media (max-width: ${size.tablet}) {
+    padding: 0;
+  }
   padding-top: 1rem;
+
 `
 
 const HeaderTitleContainer = styled.div`
@@ -15,6 +19,7 @@ const HeaderTitleContainer = styled.div`
   /* align-content: space-around; */
   justify-content: space-between;
   align-items: baseline;
+
 `
 
 const HeaderLink = styled.a`
