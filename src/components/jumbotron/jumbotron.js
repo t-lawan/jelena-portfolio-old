@@ -57,6 +57,9 @@ const ImageTitle = styled.p`
 
 const CloseImageContainer = styled.div`
   width: 3%;
+  :hover {
+    cursor: pointer;
+  }
   @media (max-width: ${size.tablet}) {
     width: 5%;
   }
