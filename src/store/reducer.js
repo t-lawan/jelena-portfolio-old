@@ -6,6 +6,7 @@ const initalState = {
   header_links: [],
   jumbotron_content: [],
   show_modal: false,
+  modal_content: null,
   isLoaded: false,
   show_mobile_modal: false,
 }
