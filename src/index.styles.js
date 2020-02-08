@@ -4,6 +4,10 @@ export const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i&display=swap');
     * {
   box-sizing: border-box;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  scrollbar-width: none;
 }
 html,
 body {
@@ -92,7 +96,7 @@ export const size = {
   tablet: "768px",
   laptop: "1024px",
   laptopL: "1440px",
-  desktop: "2560px",
+  desktop: "1500px",
 }
 
 export const TwoColumnSection= styled.div`

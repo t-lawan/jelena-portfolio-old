@@ -55,6 +55,13 @@ const ImageTitle = styled.p`
   }
 `
 
+const ImageContiner = styled.div`
+  width: 100%;
+  @media (min-width: ${size.desktop}) {
+    width: 90%;
+  }
+`
+
 const CloseImageContainer = styled.div`
   width: 3%;
   :hover {
@@ -93,7 +100,9 @@ const Jumbotron = props => {
         show={!props.show_modal}
       >
         <ImageTitle> {image.title} </ImageTitle>
-        <Img fluid={image.image.fluid} />
+        <ImageContiner>
+          <Img fluid={image.image.fluid} />
+        </ImageContiner>
       </JumbotronUnderlay>
     </JumbotronWrapper>
   )
