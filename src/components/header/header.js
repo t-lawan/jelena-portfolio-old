@@ -27,6 +27,8 @@ const HeaderLink = styled.a`
   font-style: italic;
   @media (max-width: ${size.tablet}) {
     display: ${props => (props.hideInMobile ? "none" : "inherit")};
+    font-size: 1.2rem;
+
   }
 `
 
@@ -34,6 +36,9 @@ const HeaderTitle = styled.p`
   font-size: 1.4rem;
   :hover {
     cursor: pointer;
+  }
+  @media (max-width: ${size.tablet}) {
+    font-size: 1.2rem;
   }
 `
 
