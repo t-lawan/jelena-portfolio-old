@@ -1,13 +1,13 @@
 import styled, { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i&display=swap');
     * {
   box-sizing: border-box;
 }
 html,
 body {
-    font-family: 'Lato', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   width: 100vw;
   width: 100%;
   height: 100%;
