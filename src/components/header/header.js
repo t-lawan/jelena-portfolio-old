@@ -51,7 +51,6 @@ const Header = props => {
   links = links.sort((a, b) => {
     return a.order - b.order
   })
-  console.log('Links', links)
 
   return (
     <HeaderWrapper>

@@ -16,6 +16,8 @@ const JumbotronWrapper = styled.section`
   @media (max-width: ${size.tablet}) {
     justify-content: center;
   }
+  z-index: 500;
+
 `
 
 const JumbotronModal = styled.div`
@@ -23,8 +25,10 @@ const JumbotronModal = styled.div`
   width: 100%;
   height: 100%;
   /* background: yellow; */
-  z-index: 500;
   padding: 1rem;
+  @media (max-width: ${size.mobileL}) {
+    padding: 0;
+  }
   display: ${props => (props.show ? "" : "none")};
 `
 
@@ -33,6 +37,9 @@ const ModalHeader = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  @media (max-width: ${size.mobileL}) {
+    padding: 0 1rem;
+  }
 `
 
 const ModalBody = styled.div`
@@ -64,11 +71,17 @@ const ImageContiner = styled.div`
 
 const CloseImageContainer = styled.div`
   width: 3%;
+  z-index: 500;
+
   :hover {
     cursor: pointer;
   }
   @media (max-width: ${size.tablet}) {
     width: 5%;
+  }
+
+  @media (max-width: ${size.mobileL}) {
+    width: 12%;
   }
 `
 
@@ -78,9 +91,15 @@ const Jumbotron = props => {
     return im.type === "Image"
   })
 
-  let displayedContent = content.find((co) => {
-    return co.id === props.jumbotron_modal_content;
+  let project = content.find(pr => {
+    return pr.type === "Project"
   })
+
+  let displayedContent = content.find(co => {
+    return co.id === props.jumbotron_modal_content
+  })
+
+  console.log("logs", props.jumbotronContent)
 
   return (
     <JumbotronWrapper>
@@ -92,15 +111,18 @@ const Jumbotron = props => {
         </ModalHeader>
 
         <ModalBody>
-          {displayedContent ? documentToReactComponents(displayedContent.text.json, richTextOptions) : null}
+          {displayedContent
+            ? documentToReactComponents(
+                displayedContent.text.json,
+                richTextOptions
+              )
+            : null}
         </ModalBody>
       </JumbotronModal>
-      <JumbotronUnderlay
-        show={!props.show_jumbotron_modal}
-      >
+      <JumbotronUnderlay onClick={() => props.showJumbotronModal(project.id)} show={!props.show_jumbotron_modal}>
         <ImageTitle> {image.title} </ImageTitle>
         <ImageContiner>
-          {image ?  <Img fluid={image.image.fluid} /> : null}
+          {image ? <Img fluid={image.image.fluid} /> : null}
         </ImageContiner>
       </JumbotronUnderlay>
     </JumbotronWrapper>
@@ -112,7 +134,7 @@ const mapStateToProps = state => {
     isLoaded: state.isLoaded,
     jumbotronContent: state.jumbotron_content,
     show_jumbotron_modal: state.show_jumbotron_modal,
-    jumbotron_modal_content: state.jumbotron_modal_content
+    jumbotron_modal_content: state.jumbotron_modal_content,
   }
 }
 
@@ -121,6 +143,11 @@ const mapDispatchToProps = dispatch => {
     hideJumbotronModal: () =>
       dispatch({
         type: ActionTypes.HIDE_JUMBOTRON_MODAL,
+      }),
+    showJumbotronModal: jumbotron_id =>
+      dispatch({
+        type: ActionTypes.SHOW_JUMBOTRON_MODAL,
+        jumbotron_modal_content: jumbotron_id,
       }),
   }
 }

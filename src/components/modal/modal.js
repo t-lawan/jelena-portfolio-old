@@ -9,7 +9,7 @@ import Links from "../links/links";
 const ModalWrapper = styled.div`
   position: fixed;
   bottom: 0;
-  background: rgba(242,242,242,1);
+  background: rgb(242,242,242);
   left: 0;
   z-index: 1000;
   height: 80vh;
