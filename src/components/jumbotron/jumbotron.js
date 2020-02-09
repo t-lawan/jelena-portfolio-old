@@ -99,8 +99,6 @@ const Jumbotron = props => {
     return co.id === props.jumbotron_modal_content
   })
 
-  console.log("logs", props.jumbotronContent)
-
   return (
     <JumbotronWrapper>
       <JumbotronModal show={props.show_jumbotron_modal}>
