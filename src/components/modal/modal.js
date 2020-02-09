@@ -12,7 +12,8 @@ const ModalWrapper = styled.div`
   background: rgb(242,242,242);
   left: 0;
   z-index: 1000;
-  height: 80vh;
+  height: 85vh;
+
   width: 100vw;
   display: none;
   @media (max-width: ${size.tablet}) {
@@ -22,6 +23,11 @@ const ModalWrapper = styled.div`
 const Hamburger = styled(HamburgerBoring)`
   display: none;
   @media (max-width: ${size.tablet}) {
+    display: ${props => (props.showInMobile ? "inherit" : "none")};
+  }
+
+  @media (max-width: ${size.mobileL}) {
+    height: 80vh;
     display: ${props => (props.showInMobile ? "inherit" : "none")};
   }
 `
