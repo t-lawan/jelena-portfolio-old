@@ -10,6 +10,8 @@ export class Convert {
             contentfulModel.externalLink,
             contentfulModel.title,
             contentfulModel.url,
+            contentfulModel.activatedItem.contentful_id,
+            contentfulModel.showInMobile
         );
     }
 

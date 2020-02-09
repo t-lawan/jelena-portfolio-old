@@ -10,7 +10,6 @@ const HeaderWrapper = styled.header`
     padding: 0;
   }
   padding-top: 1rem;
-
 `
 
 const HeaderTitleContainer = styled.div`
@@ -19,7 +18,6 @@ const HeaderTitleContainer = styled.div`
   /* align-content: space-around; */
   justify-content: space-between;
   align-items: baseline;
-
 `
 
 const HeaderLink = styled.a`
@@ -28,7 +26,6 @@ const HeaderLink = styled.a`
   @media (max-width: ${size.tablet}) {
     display: ${props => (props.hideInMobile ? "none" : "inherit")};
     font-size: 1.2rem;
-
   }
 `
 
@@ -39,6 +36,7 @@ const HeaderTitle = styled.p`
   }
   @media (max-width: ${size.tablet}) {
     font-size: 1.2rem;
+    display: ${props => (props.showInMobile ? "inherit" : "none")};
   }
 `
 
@@ -53,6 +51,7 @@ const Header = props => {
   links = links.sort((a, b) => {
     return a.order - b.order
   })
+  console.log('Links', links)
 
   return (
     <HeaderWrapper>
@@ -76,7 +75,7 @@ const Header = props => {
               {link.title.toUpperCase()}{" "}
             </HeaderLink>
           ) : (
-            <HeaderTitle onClick={() => props.toggleModal()} key={index}>
+            <HeaderTitle showInMobile={link.showInMobile} onClick={() => props.showJumbotronModal(link.jumbotron_content)} key={index}>
               {" "}
               {link.title.toUpperCase()}{" "}
             </HeaderTitle>
@@ -98,7 +97,12 @@ const mapDispatchToProps = dispatch => {
   return {
     toggleModal: () =>
       dispatch({
-        type: ActionTypes.TOGGLE_MODAL,
+        type: ActionTypes.TOGGLE_JUMBOTRON_MODAL,
+      }),
+    showJumbotronModal: (jumbotron_id) =>
+      dispatch({
+        type: ActionTypes.SHOW_JUMBOTRON_MODAL,
+        jumbotron_modal_content: jumbotron_id
       }),
     toggleMobileModal: () =>
       dispatch({

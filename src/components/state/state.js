@@ -15,6 +15,10 @@ const State = props => {
               title
               order
               externalLink
+              activatedItem {
+                contentful_id
+              }
+              showInMobile
             }
           }
         }

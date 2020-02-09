@@ -5,8 +5,8 @@ const initalState = {
   sidebar_links: [],
   header_links: [],
   jumbotron_content: [],
-  show_modal: false,
-  modal_content: null,
+  show_jumbotron_modal: false,
+  jumbotron_modal_content: null,
   isLoaded: false,
   show_mobile_modal: false,
 }
@@ -29,17 +29,19 @@ const reducer = (state = initalState, action) => {
       return Object.assign({}, state, {
         jumbotron_content: action.jumbotron_content,
       })
-    case ActionTypes.SHOW_MODAL:
+    case ActionTypes.SHOW_JUMBOTRON_MODAL:
       return Object.assign({}, state, {
-        show_modal: true,
+        show_jumbotron_modal: true,
+        jumbotron_modal_content: action.jumbotron_modal_content
       })
-    case ActionTypes.HIDE_MODAL:
+    case ActionTypes.HIDE_JUMBOTRON_MODAL:
       return Object.assign({}, state, {
-        show_modal: false,
+        show_jumbotron_modal: false,
+        jumbotron_modal_content: null
       })
-    case ActionTypes.TOGGLE_MODAL:
+    case ActionTypes.TOGGLE_JUMBOTRON_MODAL:
       return Object.assign({}, state, {
-        show_modal: !state.show_modal,
+        show_jumbotron_modal: !state.show_jumbotron_modal,
       })
     case ActionTypes.SHOW_MOBILE_MODAL:
       return Object.assign({}, state, {
@@ -65,5 +67,5 @@ const reducer = (state = initalState, action) => {
 export const store = () =>
   createStore(
     reducer,
-    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )

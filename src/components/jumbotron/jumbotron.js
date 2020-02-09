@@ -78,30 +78,29 @@ const Jumbotron = props => {
     return im.type === "Image"
   })
 
-  let bio = content.find(bi => {
-    return bi.type === "Bio"
+  let displayedContent = content.find((co) => {
+    return co.id === props.jumbotron_modal_content;
   })
 
   return (
     <JumbotronWrapper>
-      <JumbotronModal show={props.show_modal}>
+      <JumbotronModal show={props.show_jumbotron_modal}>
         <ModalHeader>
           <CloseImageContainer>
-            <img src={CloseIcon} onClick={() => props.toggleModal()} />
+            <img src={CloseIcon} onClick={() => props.hideJumbotronModal()} />
           </CloseImageContainer>
         </ModalHeader>
 
         <ModalBody>
-          {documentToReactComponents(bio.text.json, richTextOptions)}
+          {displayedContent ? documentToReactComponents(displayedContent.text.json, richTextOptions) : null}
         </ModalBody>
       </JumbotronModal>
       <JumbotronUnderlay
-        onClick={() => props.toggleModal()}
-        show={!props.show_modal}
+        show={!props.show_jumbotron_modal}
       >
         <ImageTitle> {image.title} </ImageTitle>
         <ImageContiner>
-          <Img fluid={image.image.fluid} />
+          {image ?  <Img fluid={image.image.fluid} /> : null}
         </ImageContiner>
       </JumbotronUnderlay>
     </JumbotronWrapper>
@@ -112,15 +111,16 @@ const mapStateToProps = state => {
   return {
     isLoaded: state.isLoaded,
     jumbotronContent: state.jumbotron_content,
-    show_modal: state.show_modal,
+    show_jumbotron_modal: state.show_jumbotron_modal,
+    jumbotron_modal_content: state.jumbotron_modal_content
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    toggleModal: () =>
+    hideJumbotronModal: () =>
       dispatch({
-        type: ActionTypes.TOGGLE_MODAL,
+        type: ActionTypes.HIDE_JUMBOTRON_MODAL,
       }),
   }
 }
