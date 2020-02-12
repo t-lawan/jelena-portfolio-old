@@ -15,7 +15,7 @@ const reducer = (state = initalState, action) => {
   switch (action.type) {
     case ActionTypes.SET_PAGES:
       return Object.assign({}, state, {
-        page: action.pages,
+        pages: action.pages,
       })
     case ActionTypes.SET_SIDEBAR_LINKS:
       return Object.assign({}, state, {
