@@ -35,6 +35,10 @@ export class Convert {
             contentfulModel.email,
         );
     }
+
+    // static toProjectModel = contentfulModel => {
+    //     return new Proj
+    // }
     static toModelArray = (query, modelConverter) => {
         const modelArray = []
         query.edges.forEach((contentfulModel) => {
