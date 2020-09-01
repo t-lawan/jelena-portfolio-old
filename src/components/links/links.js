@@ -7,8 +7,8 @@ const LinkWrapper = styled.div`
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  text-align: right;
-  justify-content: flex-end;
+  text-align: end;
+  justify-content: space-evenly;
   @media (max-width: ${size.tablet}) {
     display: ${props => (props.hideInMobile ? "none" : "flex")};
   }
@@ -16,6 +16,7 @@ const LinkWrapper = styled.div`
 
 const ExternalLink = styled.a`
     padding-top: 2rem;
+    transform: rotate(90deg);
 `
 
 const Links = props => {

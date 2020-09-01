@@ -1,10 +1,12 @@
 import React from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
-import { GlobalStyle } from "../../index.styles";
+import { GlobalStyle, TwoColumnSection } from "../../index.styles";
 import Header from "../header/header";
 import State from "../state/state";
 import Modal from "../modal/modal";
+import Links from "../links/links";
+import SEO from "../seo";
 
 const LayoutWrapper = styled.div`
     padding: 1rem;
@@ -18,13 +20,18 @@ const MainWrapper = styled.main`
 `
 const Layout = (props) => {
     return (
-        <LayoutWrapper> 
+        <LayoutWrapper>
             <GlobalStyle />
             <Header />
             <Modal />
+            <SEO />
+
             <State />
             <MainWrapper>
-                {props.children}
+                <TwoColumnSection>
+                    {props.children}
+                    <Links hideInMobile />
+                </TwoColumnSection>
             </MainWrapper>
         </LayoutWrapper>
 
@@ -35,7 +42,7 @@ const Layout = (props) => {
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
     colour: PropTypes.string
-  }
+}
 
 
 export default Layout;

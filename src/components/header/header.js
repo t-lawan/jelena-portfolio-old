@@ -10,6 +10,7 @@ const HeaderWrapper = styled.header`
     padding: 0;
   }
   padding-top: 1rem;
+  width: 90vw;
 `
 
 const HeaderTitleContainer = styled.div`

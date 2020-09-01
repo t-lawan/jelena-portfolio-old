@@ -1,6 +1,7 @@
 import { HeaderLink } from "../models/HeaderLink";
 import { SidebarLink } from "../models/SidebarLink";
 import { JumbotronContent } from "../models/JumbotronContent";
+import { ProjectModel } from "../models/ProjectModel";
 
 export class Convert {
     static toHeaderLinkModel = contentfulModel => {
@@ -36,9 +37,20 @@ export class Convert {
         );
     }
 
-    // static toProjectModel = contentfulModel => {
-    //     return new Proj
-    // }
+    static toProjectModel = contentfulModel => {
+        return new ProjectModel (
+            contentfulModel.contentful_id,
+            contentfulModel.title,
+            contentfulModel.slug,
+            contentfulModel.displayDescriptions,
+            contentfulModel.displayImages,
+            contentfulModel.displayVideo,
+            contentfulModel.description,
+            contentfulModel.images,
+            contentfulModel.vimeoId,
+        )
+    }
+
     static toModelArray = (query, modelConverter) => {
         const modelArray = []
         query.edges.forEach((contentfulModel) => {
