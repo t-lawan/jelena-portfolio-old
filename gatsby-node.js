@@ -11,6 +11,7 @@ const path = require(`path`)
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   const project = path.resolve(`src/templates/project.js`)
+  const page = path.resolve(`src/templates/page.js`)
   // Query for markdown nodes to use in creating pages.
   // You can query for whatever data you want to create pages for e.g.
   // products, portfolio items, landing pages, etc.
@@ -43,7 +44,19 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
-          
+          allContentfulPages {
+            edges {
+              node {
+                id
+                title
+                slug
+                content {
+                  json
+                }
+                
+              }
+            }
+          }
       }
     `,
     { limit: 1000 }
@@ -59,6 +72,15 @@ exports.createPages = ({ graphql, actions }) => {
         // Path for this page — required
         path: `${edge.node.slug}`,
         component: project,
+        context: edge.node,
+      })
+    })
+
+    result.data.allContentfulPages.edges.forEach(edge => {
+      createPage({
+        // Path for this page — required
+        path: `${edge.node.slug}`,
+        component: page,
         context: edge.node,
       })
     })

@@ -34,6 +34,20 @@ const State = props => {
             }
           }
         }
+        allContentfulNavbarLink {
+          edges {
+            node {
+              id
+              externalLink
+              order
+              showInMobile
+              title
+              project {
+                slug
+              }
+            }
+          }
+        }
         allContentfulJumbotronContent {
           edges {
             node {

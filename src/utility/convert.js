@@ -2,6 +2,7 @@ import { HeaderLink } from "../models/HeaderLink";
 import { SidebarLink } from "../models/SidebarLink";
 import { JumbotronContent } from "../models/JumbotronContent";
 import { ProjectModel } from "../models/ProjectModel";
+import { NavbarLink } from "../models/NavbarLink";
 
 export class Convert {
     static toHeaderLinkModel = contentfulModel => {
@@ -12,6 +13,18 @@ export class Convert {
             contentfulModel.title,
             contentfulModel.url,
             contentfulModel.activatedItem.contentful_id,
+            contentfulModel.showInMobile
+        );
+    }
+
+    static toNavbarLinkModel = contentfulModel => {
+        
+        return new NavbarLink(
+            contentfulModel.contentful_id,
+            contentfulModel.order,
+            contentfulModel.externalLink,
+            contentfulModel.title,
+            contentfulModel.externalLink ? contentfulModel.url : contentfulModel.project.slug,
             contentfulModel.showInMobile
         );
     }
