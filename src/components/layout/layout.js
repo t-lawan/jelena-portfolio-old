@@ -8,6 +8,7 @@ import Modal from "../modal/modal";
 import Links from "../links/links";
 import SEO from "../seo";
 import Navbar from "../navbar/navbar";
+import Footer from "../footer/footer";
 
 const LayoutWrapper = styled.div`
     padding: 1rem;
@@ -34,6 +35,7 @@ const Layout = (props) => {
                     <Links hideInMobile />
                 </TwoColumnSection>
             </MainWrapper>
+            <Footer />
         </LayoutWrapper>
 
 

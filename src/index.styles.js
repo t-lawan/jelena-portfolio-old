@@ -102,6 +102,7 @@ export const size = {
 export const TwoColumnSection= styled.div`
     display: grid;
     grid-template-columns: 9fr 1fr;
+    grid-column-gap: 1rem;
     @media (max-width: ${size.tablet}) {
       grid-template-columns: 1fr;
     }

@@ -9,6 +9,7 @@ const LinkWrapper = styled.div`
   flex-direction: column;
   text-align: end;
   justify-content: space-evenly;
+  height: 80vh;
   @media (max-width: ${size.tablet}) {
     display: ${props => (props.hideInMobile ? "none" : "flex")};
   }

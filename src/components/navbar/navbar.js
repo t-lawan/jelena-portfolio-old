@@ -74,7 +74,7 @@ const Navbar = props => {
         {links.map((link, index) =>
           link.externalLink ? (
             <NavbarExternalLink
-                showInMobile={false}
+              showInMobile={false}
               href={link.url}
               target="__blank"
               key={index}

@@ -4,12 +4,13 @@ import { Convert } from "../utility/convert"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { richTextOptions } from "../utility/richtext"
 import ImageCarousel from "../components/image-carousel/image-carousel"
+import { PageWrapper } from "./page";
 
 const Project = props => {
   let item = Convert.toProjectModel(props.pageContext)
   return (
     <Layout>
-      <div>
+      <PageWrapper>
         {/* DESCRIPTION */}
         {item.display_description ? documentToReactComponents(
           item.description.json,
@@ -21,7 +22,7 @@ const Project = props => {
         {/* VIDEO */}
         {item.display_video ? <p>videos</p>: null}
 
-      </div>
+      </PageWrapper>
     </Layout>
   )
 }
