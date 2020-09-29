@@ -4,6 +4,7 @@ const initalState = {
   pages: [],
   sidebar_links: [],
   header_links: [],
+  navbar_links: [],
   jumbotron_content: [],
   show_jumbotron_modal: false,
   jumbotron_modal_content: null,
@@ -25,6 +26,10 @@ const reducer = (state = initalState, action) => {
       return Object.assign({}, state, {
         header_links: action.header_links,
       })
+    case ActionTypes.SET_NAVBAR_LINKS:
+      return Object.assign({}, state, {
+        navbar_links: action.navbar_links,
+      })
     case ActionTypes.SET_JUMBOTRON_CONTENT:
       return Object.assign({}, state, {
         jumbotron_content: action.jumbotron_content,
@@ -32,12 +37,12 @@ const reducer = (state = initalState, action) => {
     case ActionTypes.SHOW_JUMBOTRON_MODAL:
       return Object.assign({}, state, {
         show_jumbotron_modal: true,
-        jumbotron_modal_content: action.jumbotron_modal_content
+        jumbotron_modal_content: action.jumbotron_modal_content,
       })
     case ActionTypes.HIDE_JUMBOTRON_MODAL:
       return Object.assign({}, state, {
         show_jumbotron_modal: false,
-        jumbotron_modal_content: null
+        jumbotron_modal_content: null,
       })
     case ActionTypes.TOGGLE_JUMBOTRON_MODAL:
       return Object.assign({}, state, {
@@ -66,6 +71,6 @@ const reducer = (state = initalState, action) => {
 
 export const store = () =>
   createStore(
-    reducer,
+    reducer
     // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )

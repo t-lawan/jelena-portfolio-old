@@ -77,6 +77,7 @@ const State = props => {
       allContentfulHeaderLinks,
       allContentfulSidebarLinks,
       allContentfulJumbotronContent,
+      allContentfulNavbarLink
     } = data
 
     let headerLinks = Convert.toModelArray(
@@ -84,6 +85,12 @@ const State = props => {
       Convert.toHeaderLinkModel
     )
     props.setHeaderLinks(headerLinks)
+
+    let navbarLinks = Convert.toModelArray(
+      allContentfulNavbarLink,
+      Convert.toNavbarLinkModel
+    )
+    props.setNavbarLinks(navbarLinks)
 
     let sidebarLinks = Convert.toModelArray(
       allContentfulSidebarLinks,
@@ -115,6 +122,11 @@ const mapDispatchToProps = dispatch => {
       dispatch({
         type: ActionTypes.SET_HEADER_LINKS,
         header_links: header_links,
+      }),
+    setNavbarLinks: navbar_links =>
+      dispatch({
+        type: ActionTypes.SET_NAVBAR_LINKS,
+        navbar_links: navbar_links,
       }),
     setSidebarLinks: sidebar_links =>
       dispatch({

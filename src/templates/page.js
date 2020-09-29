@@ -6,12 +6,15 @@ import { richTextOptions } from "../utility/richtext"
 
 
 const Page = props => {
-  let item = Convert.toProjectModel(props.pageContext)
+  let pageContent = props.pageContext
+
   return (
     <Layout>
       <div>
-        <p> Hello </p>
-
+        {pageContent.content ? documentToReactComponents(
+          pageContent.content.json,
+          richTextOptions
+        ) : null}
       </div>
     </Layout>
   )

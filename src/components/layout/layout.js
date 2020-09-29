@@ -7,6 +7,7 @@ import State from "../state/state";
 import Modal from "../modal/modal";
 import Links from "../links/links";
 import SEO from "../seo";
+import Navbar from "../navbar/navbar";
 
 const LayoutWrapper = styled.div`
     padding: 1rem;
@@ -22,7 +23,7 @@ const Layout = (props) => {
     return (
         <LayoutWrapper>
             <GlobalStyle />
-            <Header />
+            <Navbar />
             <Modal />
             <SEO />
 
