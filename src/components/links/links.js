@@ -18,6 +18,11 @@ const LinkWrapper = styled.div`
 const ExternalLink = styled.a`
     padding-top: 2rem;
     transform: rotate(90deg);
+    font-size: 1.4rem;
+    @media (max-width: ${size.tablet}) {
+      font-size: 1.2rem;
+      display: ${props => (props.showInMobile ? "inherit" : "none")};
+    }
 `
 
 const Links = props => {

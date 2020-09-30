@@ -26,7 +26,7 @@ const Layout = (props) => {
             <GlobalStyle />
             <Navbar />
             <Modal />
-            <SEO />
+            <SEO title={props.title} />
 
             <State />
             <MainWrapper>

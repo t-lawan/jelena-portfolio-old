@@ -9,7 +9,7 @@ import { PageWrapper } from "./page";
 const Project = props => {
   let item = Convert.toProjectModel(props.pageContext)
   return (
-    <Layout>
+    <Layout title={item.title}>
       <PageWrapper>
         {/* DESCRIPTION */}
         {item.display_description ? documentToReactComponents(

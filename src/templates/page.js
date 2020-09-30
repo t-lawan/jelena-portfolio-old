@@ -9,9 +9,8 @@ export const PageWrapper = styled.div`
 `
 const Page = props => {
   let pageContent = props.pageContext
-
   return (
-    <Layout>
+    <Layout title={pageContent.title}>
       <PageWrapper>
         {pageContent.content ? documentToReactComponents(
           pageContent.content.json,

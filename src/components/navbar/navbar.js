@@ -19,13 +19,13 @@ const NavbarTitleContainer = styled.div`
   display: flex;
   flex-direction: row;
   /* align-content: space-around; */
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: baseline;
 `
 
 const NavbarLink = styled(Link)`
   font-size: 1.4rem;
-  font-style: italic;
+  margin-right: 1rem;
   @media (max-width: ${size.tablet}) {
     font-size: 1.2rem;
     display: ${props => (props.showInMobile ? "inherit" : "none")};
@@ -41,14 +41,6 @@ const NavbarExternalLink = styled.a`
   }
 `
 
-const NavbarTitle = styled.p`
-  font-size: 1.4rem;
-  :hover {
-    cursor: pointer;
-  }
-
-`
-
 const Hamburger = styled(HamburgerBoring)`
   display: none;
   @media (max-width: ${size.tablet}) {
@@ -60,7 +52,6 @@ const Navbar = props => {
   links = links.sort((a, b) => {
     return a.order - b.order
   })
-  console.log('LINKs', links)
   return (
     <NavbarWrapper>
       <NavbarTitleContainer>
@@ -83,7 +74,7 @@ const Navbar = props => {
               {link.title.toUpperCase()}{" "}
             </NavbarExternalLink>
           ) : (
-            <NavbarLink to={`/${link.url}`} showInMobile={link.showInMobile} key={index}>
+            <NavbarLink activeClassName={'active-link'} to={`/${link.url}`} showInMobile={link.showInMobile} key={index}>
               {" "}
               {link.title.toUpperCase()}{" "}
             </NavbarLink>

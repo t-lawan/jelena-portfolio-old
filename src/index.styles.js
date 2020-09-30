@@ -83,10 +83,17 @@ p{
   padding-right: 0;
   padding-top: 0;
   font-size: 1.15em;
+  line-height: 1.3;
 }
 li {
   list-style-type: lower-roman;
 }
+
+.active-link {
+    font-style: italic;
+    transform: rotate(1deg);
+
+  }
 `
 
 export const size = {
@@ -99,12 +106,12 @@ export const size = {
   desktop: "1500px",
 }
 
-export const TwoColumnSection= styled.div`
-    display: grid;
-    grid-template-columns: 9fr 1fr;
-    grid-column-gap: 1rem;
-    @media (max-width: ${size.tablet}) {
-      grid-template-columns: 1fr;
-    }
-    /* margin-top: 2rem; */
+export const TwoColumnSection = styled.div`
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+  grid-column-gap: 1rem;
+  @media (max-width: ${size.tablet}) {
+    grid-template-columns: 1fr;
+  }
+  /* margin-top: 2rem; */
 `

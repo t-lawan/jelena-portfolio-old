@@ -9,10 +9,10 @@ import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 
-function SEO({ description, lang }) {
+function SEO({ title, lang }) {
   const metaDescription =
     "Jelena Viskovic is an artist working with storytelling and world-building. She uses video game engines to build new social research tools, virtual worlds, and social organizational platforms. Her games Nirgendheim and Chimera use architectural structures, characters, and game mechanics to provide unexpected ways of interacting with opaque technological systems of control. Her collaborative projects have been commissioned by the V&A (UK), Rhizome (US), the New Institute (Netherlands), and Akademie Schloss Solitude (Germany). Viskovic is a visiting lecturer at the Royal College of Art (UK) and the AA School of Architecture (UK)."
-  let title = "Jelena Viskovic";
+  title = title ? `${title} | Jelena Viskovic` : "Jelena Viskovic";
   return (
     <Helmet
       htmlAttributes={{

@@ -4,8 +4,9 @@ import { connect } from "react-redux"
 import * as ActionTypes from "../../store/actions"
 import { size } from "../../index.styles"
 import { Link } from "gatsby"
-const FooterWrapper = styled.header`
+const FooterWrapper = styled.footer`
   padding: 0.5rem;
+  /* mix-blend-mode: difference;   */
   @media (max-width: ${size.tablet}) {
     padding: 0;
   }
@@ -13,7 +14,7 @@ const FooterWrapper = styled.header`
   bottom: 0;
   position: fixed;
   width: 100vw;
-  
+  z-index: 1000;
 `
 
 const FooterLinkContainer = styled.div`
@@ -22,14 +23,13 @@ const FooterLinkContainer = styled.div`
   align-content: space-around;
   justify-content: flex-start;
   align-items: baseline;
-  padding: 0 1rem;
 `
 
 const FooterLink = styled(Link)`
   font-size: 1.4rem;
   font-style: italic;
   mix-blend-mode: difference;
-  padding: 0 0.5rem;
+  margin-right: 1.5rem;
   @media (max-width: ${size.tablet}) {
     display: ${props => (props.hideInMobile ? "none" : "inherit")};
     font-size: 1.2rem;
