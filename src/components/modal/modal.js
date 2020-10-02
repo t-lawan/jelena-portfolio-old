@@ -42,7 +42,6 @@ const Hamburger = styled(HamburgerBoring)`
   }
 `
 const Modal = props => {
-  console.log('CONTENT', props.modal_content)
   return (
     <ModalWrapper showinmob={props.show_mobile_modal}>
         <Hamburger
