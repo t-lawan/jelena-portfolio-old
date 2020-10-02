@@ -37,14 +37,14 @@ const HeaderTitle = styled.p`
   }
   @media (max-width: ${size.tablet}) {
     font-size: 1.2rem;
-    display: ${props => (props.showInMobile ? "inherit" : "none")};
+    display: ${props => (props.showinmob ? "inherit" : "none")};
   }
 `
 
 const Hamburger = styled(HamburgerBoring)`
   display: none;
   @media (max-width: ${size.tablet}) {
-    display: ${props => (props.showInMobile ? "inherit" : "none")};
+    display: ${props => (props.showinmob ? "inherit" : "none")};
   }
 `
 const Header = props => {
@@ -58,7 +58,7 @@ const Header = props => {
       <HeaderTitleContainer>
         <Hamburger
           toggleButton={props.toggleMobileModal}
-          showInMobile={true}
+          showinmob={true}
           isActive={props.show_mobile_modal}
           barColor="black"
           buttonWidth={30}
@@ -75,7 +75,7 @@ const Header = props => {
               {link.title.toUpperCase()}{" "}
             </HeaderLink>
           ) : (
-            <HeaderTitle showInMobile={link.showInMobile} onClick={() => props.showJumbotronModal(link.jumbotron_content)} key={index}>
+            <HeaderTitle showinmob={link.showInMobile} onClick={() => props.showJumbotronModal(link.jumbotron_content)} key={index}>
               {" "}
               {link.title.toUpperCase()}{" "}
             </HeaderTitle>

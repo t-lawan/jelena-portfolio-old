@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 import { GlobalStyle, TwoColumnSection } from "../../index.styles";
-import Header from "../header/header";
 import State from "../state/state";
 import Modal from "../modal/modal";
 import Links from "../links/links";

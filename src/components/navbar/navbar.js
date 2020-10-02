@@ -8,11 +8,13 @@ import { Link } from "gatsby";
 
 const NavbarWrapper = styled.header`
   padding: 0.5rem;
+  width: 90vw;
+
   @media (max-width: ${size.tablet}) {
     padding: 0;
+    width: 10vw;
   }
   padding-top: 1rem;
-  width: 90vw;
 `
 
 const NavbarTitleContainer = styled.div`
@@ -28,7 +30,7 @@ const NavbarLink = styled(Link)`
   margin-right: 1rem;
   @media (max-width: ${size.tablet}) {
     font-size: 1.2rem;
-    display: ${props => (props.showInMobile ? "inherit" : "none")};
+    display: ${props => (props.showinmob ? "inherit" : "none")};
   }
 `
 
@@ -37,14 +39,14 @@ const NavbarExternalLink = styled.a`
   font-style: italic;
   @media (max-width: ${size.tablet}) {
     font-size: 1.2rem;
-    display: ${props => (props.showInMobile ? "inherit" : "none")};
+    display: ${props => (props.showinmob ? "inherit" : "none")};
   }
 `
 
 const Hamburger = styled(HamburgerBoring)`
   display: none;
   @media (max-width: ${size.tablet}) {
-    display: ${props => (props.showInMobile ? "inherit" : "none")};
+    display: ${props => (props.showinmob ? "inherit" : "none")};
   }
 `
 const Navbar = props => {
@@ -57,7 +59,7 @@ const Navbar = props => {
       <NavbarTitleContainer>
         <Hamburger
           toggleButton={props.toggleMobileModal}
-          showInMobile={true}
+          showinmob={true}
           isActive={props.show_mobile_modal}
           barColor="black"
           buttonWidth={30}
@@ -65,7 +67,7 @@ const Navbar = props => {
         {links.map((link, index) =>
           link.externalLink ? (
             <NavbarExternalLink
-              showInMobile={false}
+              showinmob={false}
               href={link.url}
               target="__blank"
               key={index}
@@ -74,7 +76,7 @@ const Navbar = props => {
               {link.title.toUpperCase()}{" "}
             </NavbarExternalLink>
           ) : (
-            <NavbarLink activeClassName={'active-link'} to={`/${link.url}`} showInMobile={link.showInMobile} key={index}>
+            <NavbarLink activeClassName={'active-link'} to={`/${link.url}`} showinmob={false} key={index}>
               {" "}
               {link.title.toUpperCase()}{" "}
             </NavbarLink>

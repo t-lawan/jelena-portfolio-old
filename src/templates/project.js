@@ -4,7 +4,8 @@ import { Convert } from "../utility/convert"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { richTextOptions } from "../utility/richtext"
 import ImageCarousel from "../components/image-carousel/image-carousel"
-import { PageWrapper } from "./page";
+import { PageWrapper } from "../components/page-content/page-content";
+
 
 const Project = props => {
   let item = Convert.toProjectModel(props.pageContext)

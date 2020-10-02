@@ -3,6 +3,7 @@ import { SidebarLink } from "../models/SidebarLink";
 import { JumbotronContent } from "../models/JumbotronContent";
 import { ProjectModel } from "../models/ProjectModel";
 import { NavbarLink } from "../models/NavbarLink";
+import { PageModel } from "../models/PageModel";
 
 export class Convert {
     static toHeaderLinkModel = contentfulModel => {
@@ -61,6 +62,15 @@ export class Convert {
             contentfulModel.description,
             contentfulModel.images,
             contentfulModel.vimeoId,
+        )
+    }
+
+    static toPageModel = contentfulModel => {
+        return new PageModel(
+            contentfulModel.contentful_id,
+            contentfulModel.title,
+            contentfulModel.slug,
+            contentfulModel.content
         )
     }
 

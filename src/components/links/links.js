@@ -20,8 +20,9 @@ const ExternalLink = styled.a`
     transform: rotate(90deg);
     font-size: 1.4rem;
     @media (max-width: ${size.tablet}) {
+      transform: rotate(0deg);
       font-size: 1.2rem;
-      display: ${props => (props.showInMobile ? "inherit" : "none")};
+      display: ${props => (props.showinmob ? "inherit" : "none")};
     }
 `
 
@@ -34,7 +35,7 @@ const Links = props => {
   return (
     <LinkWrapper hideInMobile={props.hideInMobile}>
       {sidebarLinks.map((li, index) => (
-        <ExternalLink href={li.isEmail ? `mailto:${li.email}` : li.url} target="__blank" key={index}> {li.title} </ExternalLink>
+        <ExternalLink showinmob={true} href={li.isEmail ? `mailto:${li.email}` : li.url} target="__blank" key={index}> {li.title} </ExternalLink>
       ))}
     </LinkWrapper>
   )

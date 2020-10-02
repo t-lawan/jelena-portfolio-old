@@ -50,8 +50,8 @@ const Footer = props => {
   return (
     <FooterWrapper>
         <FooterLinkContainer>
-            {links.map(link => (
-                <FooterLink to={link.slug}> {link.title}</FooterLink>
+            {links.map((link, index) => (
+                <FooterLink to={link.slug} key={index}> {link.title}</FooterLink>
             ))}
         </FooterLinkContainer>
     </FooterWrapper>

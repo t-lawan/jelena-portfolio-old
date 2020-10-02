@@ -48,6 +48,18 @@ const State = props => {
             }
           }
         }
+        allContentfulPages {
+          edges {
+            node {
+              id
+              title
+              slug
+              content {
+                json
+              }
+            }
+          }
+        }
         allContentfulJumbotronContent {
           edges {
             node {
@@ -56,11 +68,11 @@ const State = props => {
               type
               image {
                 fluid {
-                  base64
                   aspectRatio
                   src
                   srcSet
                   sizes
+                  tracedSVG
                 }
               }
               text {
@@ -77,7 +89,8 @@ const State = props => {
       allContentfulHeaderLinks,
       allContentfulSidebarLinks,
       allContentfulJumbotronContent,
-      allContentfulNavbarLink
+      allContentfulNavbarLink,
+      allContentfulPages,
     } = data
 
     let headerLinks = Convert.toModelArray(
@@ -85,6 +98,9 @@ const State = props => {
       Convert.toHeaderLinkModel
     )
     props.setHeaderLinks(headerLinks)
+
+    let pages = Convert.toModelArray(allContentfulPages, Convert.toPageModel)
+    props.setPages(pages)
 
     let navbarLinks = Convert.toModelArray(
       allContentfulNavbarLink,
@@ -102,8 +118,8 @@ const State = props => {
       allContentfulJumbotronContent,
       Convert.toJumbotronContentModel
     )
-
     props.setJumbotronContent(jumbotronContent)
+
     props.loaded()
   }
 
@@ -122,6 +138,11 @@ const mapDispatchToProps = dispatch => {
       dispatch({
         type: ActionTypes.SET_HEADER_LINKS,
         header_links: header_links,
+      }),
+    setPages: pages =>
+      dispatch({
+        type: ActionTypes.SET_PAGES,
+        pages: pages,
       }),
     setNavbarLinks: navbar_links =>
       dispatch({
