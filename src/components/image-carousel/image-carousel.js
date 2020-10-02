@@ -21,7 +21,6 @@ class ImageCarousel extends React.Component{
 
 
     render(){
-        console.log('IMAGES', this.props.images)
         return(
             <StyledCarousel
                 centerMode={false}

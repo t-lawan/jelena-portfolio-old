@@ -51,31 +51,10 @@ const State = props => {
         allContentfulPages {
           edges {
             node {
-              id
+              contentful_id
               title
               slug
               content {
-                json
-              }
-            }
-          }
-        }
-        allContentfulJumbotronContent {
-          edges {
-            node {
-              contentful_id
-              title
-              type
-              image {
-                fluid {
-                  aspectRatio
-                  src
-                  srcSet
-                  sizes
-                  tracedSVG
-                }
-              }
-              text {
                 json
               }
             }
@@ -88,7 +67,6 @@ const State = props => {
     let {
       allContentfulHeaderLinks,
       allContentfulSidebarLinks,
-      allContentfulJumbotronContent,
       allContentfulNavbarLink,
       allContentfulPages,
     } = data
@@ -114,11 +92,6 @@ const State = props => {
     )
     props.setSidebarLinks(sidebarLinks)
 
-    let jumbotronContent = Convert.toModelArray(
-      allContentfulJumbotronContent,
-      Convert.toJumbotronContentModel
-    )
-    props.setJumbotronContent(jumbotronContent)
 
     props.loaded()
   }
@@ -153,12 +126,6 @@ const mapDispatchToProps = dispatch => {
       dispatch({
         type: ActionTypes.SET_SIDEBAR_LINKS,
         sidebar_links: sidebar_links,
-      }),
-
-    setJumbotronContent: jumbotron_content =>
-      dispatch({
-        type: ActionTypes.SET_JUMBOTRON_CONTENT,
-        jumbotron_content: jumbotron_content,
       }),
     loaded: () =>
       dispatch({

@@ -40,12 +40,12 @@ body {
 }
 h2 {
   margin-bottom: 1.45rem;
-  font-size: 1.62671rem;
+  font-size: 1.6rem;
   line-height: 1.1;
 }
 h3 {
   margin-bottom: 1.45rem;
-  font-size: 1.38316rem;
+  font-size: 1.4rem;
   line-height: 1.1;
 }
 h4 {

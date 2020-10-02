@@ -8,6 +8,7 @@ import Links from "../links/links";
 import SEO from "../seo";
 import Navbar from "../navbar/navbar";
 import Footer from "../footer/footer";
+import NavbarMobile from "../navbar/navbar-mobile";
 
 const LayoutWrapper = styled.div`
     padding: 1rem;
@@ -24,6 +25,7 @@ const Layout = (props) => {
         <LayoutWrapper>
             <GlobalStyle />
             <Navbar />
+            <NavbarMobile />
             <Modal />
             <SEO title={props.title} />
 

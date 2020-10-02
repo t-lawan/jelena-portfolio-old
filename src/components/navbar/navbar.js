@@ -12,6 +12,7 @@ const NavbarWrapper = styled.header`
 
   @media (max-width: ${size.tablet}) {
     padding: 0;
+    display: none;
     width: 10vw;
   }
   padding-top: 1rem;
@@ -57,13 +58,6 @@ const Navbar = props => {
   return (
     <NavbarWrapper>
       <NavbarTitleContainer>
-        <Hamburger
-          toggleButton={props.toggleMobileModal}
-          showinmob={true}
-          isActive={props.show_mobile_modal}
-          barColor="black"
-          buttonWidth={30}
-        />
         {links.map((link, index) =>
           link.externalLink ? (
             <NavbarExternalLink
@@ -90,20 +84,8 @@ const mapStateToProps = state => {
   return {
     isLoaded: state.isLoaded,
     navbarLinks: state.navbar_links,
-    show_mobile_modal: state.show_mobile_modal,
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    toggleMobileModal: () =>
-      dispatch({
-        type: ActionTypes.TOGGLE_MOBILE_MODAL,
-      }),
-    showMobileModal: () =>
-      dispatch({
-        type: ActionTypes.SHOW_MOBILE_MODAL,
-      }),
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
+
+export default connect(mapStateToProps, null)(Navbar)

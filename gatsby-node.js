@@ -64,7 +64,6 @@ exports.createPages = ({ graphql, actions }) => {
     if (result.errors) {
       throw result.errors
     }
-    console.log('DATA', result.data.allContentfulProjects)
 
     // Create blog post pages.
     result.data.allContentfulProjects.edges.forEach(edge => {

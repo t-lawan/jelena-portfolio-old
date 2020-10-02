@@ -9,6 +9,8 @@ export const PageWrapper = styled.div`
   width: 80%;
   @media (max-width: ${size.tablet}) {
     width: 100%;
+    margin: 1rem 0;
+    
   }
 `
 

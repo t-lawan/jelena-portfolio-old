@@ -5,6 +5,8 @@ import { size } from "../../index.styles"
 import * as ActionTypes from "../../store/actions"
 import { HamburgerBoring } from "react-animated-burgers"
 import Links from "../links/links";
+import { ModalTypes } from "../../utility/richtext";
+import ProjectLinks from "../links/project-links";
 
 const ModalWrapper = styled.div`
   position: fixed;
@@ -27,7 +29,10 @@ const ModalHeader = styled.div`
 
 
 const Hamburger = styled(HamburgerBoring)`
-  display: none;
+  display: none;  
+  float: right;
+  padding: 0 !important;
+
   @media (max-width: ${size.tablet}) {
     display: ${props => (props.showinmob ? "inherit" : "none")};
   }
@@ -37,6 +42,7 @@ const Hamburger = styled(HamburgerBoring)`
   }
 `
 const Modal = props => {
+  console.log('CONTENT', props.modal_content)
   return (
     <ModalWrapper showinmob={props.show_mobile_modal}>
         <Hamburger
@@ -46,7 +52,7 @@ const Modal = props => {
           barColor="black"
           buttonWidth={30}
         />
-        <Links />
+        {props.modal_content === ModalTypes.CONTACT ?  <Links /> : <ProjectLinks />}
     </ModalWrapper>
   )
 }
@@ -54,6 +60,7 @@ const Modal = props => {
 const mapStateToProps = state => {
   return {
     show_mobile_modal: state.show_mobile_modal,
+    modal_content: state.modal_content
   }
 }
 
