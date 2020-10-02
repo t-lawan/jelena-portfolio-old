@@ -38,7 +38,7 @@ const reducer = (state = initalState, action) => {
     case ActionTypes.HIDE_MOBILE_MODAL:
       return Object.assign({}, state, {
         show_mobile_modal: false,
-        modal_content: action.content
+        modal_content: ''
       })
     case ActionTypes.TOGGLE_MOBILE_MODAL:
       return Object.assign({}, state, {

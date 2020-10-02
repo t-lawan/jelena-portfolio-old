@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { connect } from "react-redux"
 import { size } from "../../index.styles"
 import { Link } from "gatsby"
-import { TOGGLE_MOBILE_MODAL } from "../../store/actions";
+import { TOGGLE_MOBILE_MODAL, HIDE_MOBILE_MODAL } from "../../store/actions";
 
 const ProjectLinkWrapper = styled.div`
   padding: 1rem;
@@ -36,6 +36,7 @@ const ProjectLinks = props => {
           to={`/${navbarLink.url}`}
           key={index}
           activeClassName={"active-link"}
+          onClick={() => props.hideModal()}
         >
           {" "}
           {navbarLink.title.toUpperCase()}{" "}
@@ -54,9 +55,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    toggleMobileModal: () =>
+    hideModal: () =>
       dispatch({
-        type: TOGGLE_MOBILE_MODAL,
+        type: HIDE_MOBILE_MODAL
       }),
   }
 }
