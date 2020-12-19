@@ -9,7 +9,21 @@ const StyledCarousel = styled(Carousel)`
 `
 
 const Image = styled(Img)`
-
+    img {
+        object-fit: ${props =>
+      props.isLandscape ? "cover !important" : "contain !important"};
+      max-height: 650px ;
+      display: block;
+      margin: 0 auto;
+    }
+    > picture > img {
+    object-fit: ${props =>
+      props.isLandscape ? "cover !important" : "contain !important"};
+      max-height: 650px;
+      display: block;
+      margin: 0 auto;
+      /* position: relative; */
+    }
 `
 class ImageCarousel extends React.Component{
     constructor(props) {
@@ -25,11 +39,11 @@ class ImageCarousel extends React.Component{
             <StyledCarousel
                 centerMode={false}
                 swipeable={true}
-                dynamicHeight={false}
+                dynamicHeight={true}
                 showStatus={false}
             >
                 {this.props.images.map((im, index) => (
-                    <Image key={index} fluid={im.fluid} />
+                    <Image isLandscape={im.fluid.aspectRatio > 1} key={index} fluid={im.fluid} />
                 )) }
             </StyledCarousel>
         )

@@ -17,8 +17,11 @@ const LayoutWrapper = styled.div`
 `
 
 const MainWrapper = styled.main`
-    padding: 0.5rem;
-    
+    padding: 0.5rem;   
+`
+
+const Section = styled.div`
+    /* background: pink; */
 `
 const Layout = (props) => {
     return (
@@ -32,7 +35,9 @@ const Layout = (props) => {
             <State />
             <MainWrapper>
                 <TwoColumnSection>
-                    {props.children}
+                    <Section>
+                        {props.children}
+                    </Section>
                     <Links hideInMobile />
                 </TwoColumnSection>
             </MainWrapper>
