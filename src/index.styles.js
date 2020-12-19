@@ -4,10 +4,6 @@ export const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i&display=swap');
     * {
   box-sizing: border-box;
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  scrollbar-width: none;
 }
 html,
 body {
