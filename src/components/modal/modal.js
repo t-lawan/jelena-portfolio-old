@@ -43,7 +43,7 @@ const Hamburger = styled(HamburgerBoring)`
 `
 const Modal = props => {
   return (
-    <ModalWrapper showinmob={props.show_mobile_modal}>
+    <ModalWrapper showinmob={false}>
         <Hamburger
           toggleButton={props.toggleMobileModal}
           showinmob={true}

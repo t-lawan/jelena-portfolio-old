@@ -61,7 +61,7 @@ const Navbar = props => {
         {links.map((link, index) =>
           link.externalLink ? (
             <NavbarExternalLink
-              showinmob={false}
+              showinmob={0}
               href={link.url}
               target="__blank"
               key={index}
@@ -70,7 +70,7 @@ const Navbar = props => {
               {link.title.toUpperCase()}{" "}
             </NavbarExternalLink>
           ) : (
-            <NavbarLink activeClassName={'active-link'} to={`/${link.url}`} showinmob={false} key={index}>
+            <NavbarLink activeClassName={'active-link'} to={`/${link.url}`} showinmob={0} key={index}>
               {" "}
               {link.title.toUpperCase()}{" "}
             </NavbarLink>

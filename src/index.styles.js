@@ -1,13 +1,80 @@
 import styled, { createGlobalStyle } from "styled-components"
+import BasierSquareMonoBold from "./assets/BasierSquareMono-Bold.otf"
+import BasierSquareMonoBoldItalic from "./assets/BasierSquareMono-BoldItalic.otf"
+
+import BasierSquareMonoMedium from "./assets/BasierSquareMono-Medium.otf"
+import BasierSquareMonoMediumItalic from "./assets/BasierSquareMono-MediumItalic.otf"
+
+import BasierSquareMonoRegular from "./assets/BasierSquareMono-Regular.otf"
+import BasierSquareMonoRegularItalic from "./assets/BasierSquareMono-RegularItalic.otf"
+
+import BasierSquareMonoSemiBold from "./assets/BasierSquareMono-SemiBold.otf"
+import BasierSquareMonoSemiBoldItalic from "./assets/BasierSquareMono-SemiBoldItalic.otf"
 
 export const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i&display=swap');
+${'' /* @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i&display=swap'); */}
+@font-face {
+    font-family: 'BasierSquareMono';
+    src: url(${BasierSquareMonoRegular}) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'BasierSquareMono';
+    src: url(${BasierSquareMonoRegularItalic});
+    font-weight: normal;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: 'BasierSquareMono';
+    src: url(${BasierSquareMonoMedium}) format('opentype');
+    font-weight: lighter;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'BasierSquareMono';
+    src: url(${BasierSquareMonoMediumItalic}) format('opentype');
+    font-weight: lighter;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: 'BasierSquareMono';
+    src: url(${BasierSquareMonoBold}) format('opentype');
+    font-weight: bolder;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'BasierSquareMono';
+    src: url(${BasierSquareMonoBoldItalic}) format('opentype');
+    font-weight: bolder;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: 'BasierSquareMono';
+    src: url(${BasierSquareMonoSemiBold}) format('opentype');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  
+  @font-face {
+    font-family: BasierSquareMono;
+    src: url(${BasierSquareMonoSemiBoldItalic}) format('opentype');
+    font-weight: bold;
+    font-style: italic;
+  }
+
+
     * {
   box-sizing: border-box;
 }
 html,
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'BasierSquareMono',Fallback, sans-serif;
   width: 100vw;
   width: 100%;
   height: 100%;
