@@ -17,7 +17,7 @@ const LayoutWrapper = styled.div`
 `
 
 const MainWrapper = styled.main`
-    /* padding: 0.5rem;    */
+    padding: 0.5rem; 
 `
 
 const Section = styled.div`
