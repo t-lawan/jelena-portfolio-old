@@ -25,3 +25,8 @@ export const richTextOptions = {
       [INLINES.HYPERLINK]: (node, children) => <EXTERNALLINK href={node.data.uri} target="__blank">{children}</EXTERNALLINK>
     },
   };
+
+export const ModalTypes = {
+  PROJECTS: 'PROJECTS',
+  CONTACT: 'CONTACT'
+}

@@ -30,26 +30,31 @@ const State = props => {
               title
               url
               isEmail
-              email
+              isExternalLink
             }
           }
         }
-        allContentfulJumbotronContent {
+        allContentfulNavbarLink {
+          edges {
+            node {
+              id
+              externalLink
+              order
+              showInMobile
+              title
+              project {
+                slug
+              }
+            }
+          }
+        }
+        allContentfulPages {
           edges {
             node {
               contentful_id
               title
-              type
-              image {
-                fluid {
-                  base64
-                  aspectRatio
-                  src
-                  srcSet
-                  sizes
-                }
-              }
-              text {
+              slug
+              content {
                 json
               }
             }
@@ -62,7 +67,8 @@ const State = props => {
     let {
       allContentfulHeaderLinks,
       allContentfulSidebarLinks,
-      allContentfulJumbotronContent,
+      allContentfulNavbarLink,
+      allContentfulPages,
     } = data
 
     let headerLinks = Convert.toModelArray(
@@ -71,18 +77,21 @@ const State = props => {
     )
     props.setHeaderLinks(headerLinks)
 
+    let pages = Convert.toModelArray(allContentfulPages, Convert.toPageModel)
+    props.setPages(pages)
+
+    let navbarLinks = Convert.toModelArray(
+      allContentfulNavbarLink,
+      Convert.toNavbarLinkModel
+    )
+    props.setNavbarLinks(navbarLinks)
+
     let sidebarLinks = Convert.toModelArray(
       allContentfulSidebarLinks,
       Convert.toSidebarLinkModel
     )
     props.setSidebarLinks(sidebarLinks)
 
-    let jumbotronContent = Convert.toModelArray(
-      allContentfulJumbotronContent,
-      Convert.toJumbotronContentModel
-    )
-
-    props.setJumbotronContent(jumbotronContent)
     props.loaded()
   }
 
@@ -102,16 +111,20 @@ const mapDispatchToProps = dispatch => {
         type: ActionTypes.SET_HEADER_LINKS,
         header_links: header_links,
       }),
+    setPages: pages =>
+      dispatch({
+        type: ActionTypes.SET_PAGES,
+        pages: pages,
+      }),
+    setNavbarLinks: navbar_links =>
+      dispatch({
+        type: ActionTypes.SET_NAVBAR_LINKS,
+        navbar_links: navbar_links,
+      }),
     setSidebarLinks: sidebar_links =>
       dispatch({
         type: ActionTypes.SET_SIDEBAR_LINKS,
         sidebar_links: sidebar_links,
-      }),
-
-    setJumbotronContent: jumbotron_content =>
-      dispatch({
-        type: ActionTypes.SET_JUMBOTRON_CONTENT,
-        jumbotron_content: jumbotron_content,
       }),
     loaded: () =>
       dispatch({

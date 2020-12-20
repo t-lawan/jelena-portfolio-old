@@ -1,12 +1,13 @@
 import { createStore } from "redux"
 import * as ActionTypes from "./actions"
+import { ModalTypes } from "../utility/richtext";
 const initalState = {
   pages: [],
   sidebar_links: [],
   header_links: [],
+  navbar_links: [],
   jumbotron_content: [],
-  show_jumbotron_modal: false,
-  jumbotron_modal_content: null,
+  modal_content: ModalTypes.CONTACT,
   isLoaded: false,
   show_mobile_modal: false,
 }
@@ -25,35 +26,24 @@ const reducer = (state = initalState, action) => {
       return Object.assign({}, state, {
         header_links: action.header_links,
       })
-    case ActionTypes.SET_JUMBOTRON_CONTENT:
+    case ActionTypes.SET_NAVBAR_LINKS:
       return Object.assign({}, state, {
-        jumbotron_content: action.jumbotron_content,
-      })
-    case ActionTypes.SHOW_JUMBOTRON_MODAL:
-      return Object.assign({}, state, {
-        show_jumbotron_modal: true,
-        jumbotron_modal_content: action.jumbotron_modal_content
-      })
-    case ActionTypes.HIDE_JUMBOTRON_MODAL:
-      return Object.assign({}, state, {
-        show_jumbotron_modal: false,
-        jumbotron_modal_content: null
-      })
-    case ActionTypes.TOGGLE_JUMBOTRON_MODAL:
-      return Object.assign({}, state, {
-        show_jumbotron_modal: !state.show_jumbotron_modal,
+        navbar_links: action.navbar_links,
       })
     case ActionTypes.SHOW_MOBILE_MODAL:
       return Object.assign({}, state, {
         show_mobile_modal: true,
+        modal_content: action.content
       })
     case ActionTypes.HIDE_MOBILE_MODAL:
       return Object.assign({}, state, {
         show_mobile_modal: false,
+        modal_content: ''
       })
     case ActionTypes.TOGGLE_MOBILE_MODAL:
       return Object.assign({}, state, {
         show_mobile_modal: !state.show_mobile_modal,
+        modal_content: action.content
       })
     case ActionTypes.IS_LOADED:
       return Object.assign({}, state, {
@@ -66,6 +56,6 @@ const reducer = (state = initalState, action) => {
 
 export const store = () =>
   createStore(
-    reducer,
+    reducer
     // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )

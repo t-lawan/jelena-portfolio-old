@@ -1,17 +1,80 @@
 import styled, { createGlobalStyle } from "styled-components"
+import BasierSquareMonoBold from "./assets/BasierSquareMono-Bold.otf"
+import BasierSquareMonoBoldItalic from "./assets/BasierSquareMono-BoldItalic.otf"
+
+import BasierSquareMonoMedium from "./assets/BasierSquareMono-Medium.otf"
+import BasierSquareMonoMediumItalic from "./assets/BasierSquareMono-MediumItalic.otf"
+
+import BasierSquareMonoRegular from "./assets/BasierSquareMono-Regular.otf"
+import BasierSquareMonoRegularItalic from "./assets/BasierSquareMono-RegularItalic.otf"
+
+import BasierSquareMonoSemiBold from "./assets/BasierSquareMono-SemiBold.otf"
+import BasierSquareMonoSemiBoldItalic from "./assets/BasierSquareMono-SemiBoldItalic.otf"
 
 export const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i&display=swap');
+${'' /* @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i&display=swap'); */}
+@font-face {
+    font-family: BasierSquareMono;
+    src: url(${BasierSquareMonoRegular}) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: BasierSquareMono;
+    src: url(${BasierSquareMonoRegularItalic});
+    font-weight: normal;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: BasierSquareMono;
+    src: url(${BasierSquareMonoMedium}) format('opentype');
+    font-weight: lighter;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: BasierSquareMono;
+    src: url(${BasierSquareMonoMediumItalic}) format('opentype');
+    font-weight: lighter;
+    font-style: italic;
+  }
+
+  ${'' /* @font-face {
+    font-family: BasierSquareMono;
+    src: url(${BasierSquareMonoBold}) format('opentype');
+    font-weight: bolder;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: BasierSquareMono;
+    src: url(${BasierSquareMonoBoldItalic}) format('opentype');
+    font-weight: bolder;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: BasierSquareMono;
+    src: url(${BasierSquareMonoSemiBold}) format('opentype');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  
+  @font-face {
+    font-family: BasierSquareMono;
+    src: url(${BasierSquareMonoSemiBoldItalic}) format('opentype');
+    font-weight: bold;
+    font-style: italic;
+  } */}
+
+
     * {
   box-sizing: border-box;
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  scrollbar-width: none;
 }
 html,
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: BasierSquareMono,Fallback, sans-serif;
   width: 100vw;
   width: 100%;
   height: 100%;
@@ -40,12 +103,12 @@ body {
 }
 h2 {
   margin-bottom: 1.45rem;
-  font-size: 1.62671rem;
+  font-size: 1.6rem;
   line-height: 1.1;
 }
 h3 {
   margin-bottom: 1.45rem;
-  font-size: 1.38316rem;
+  font-size: 1.1rem;
   line-height: 1.1;
 }
 h4 {
@@ -82,11 +145,20 @@ p{
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  font-size: 1.15em;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  font-weight: lighter;
+    font-style: normal;
 }
 li {
   list-style-type: lower-roman;
 }
+
+.active-link {
+    font-style: italic;
+    transform: rotate(1deg);
+
+  }
 `
 
 export const size = {
@@ -99,11 +171,12 @@ export const size = {
   desktop: "1500px",
 }
 
-export const TwoColumnSection= styled.div`
-    display: grid;
-    grid-template-columns: 8fr 3fr;
-    @media (max-width: ${size.tablet}) {
-      grid-template-columns: 1fr;
-    }
-    /* margin-top: 2rem; */
+export const TwoColumnSection = styled.div`
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+  grid-column-gap: 1rem;
+  @media (max-width: ${size.tablet}) {
+    grid-template-columns: 1fr;
+  }
+  /* margin-top: 2rem; */
 `
