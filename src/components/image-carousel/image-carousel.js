@@ -46,6 +46,7 @@ class ImageCarousel extends React.Component{
                 autoPlay={true}
                 stopOnHover={true}
                 infiniteLoop={true}
+                
             >
                 {this.props.images.map((im, index) => (
                     <Image isLandscape={im.fluid.aspectRatio > 1} key={index} fluid={im.fluid} />
