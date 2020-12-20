@@ -48,6 +48,7 @@ export class Convert {
             contentfulModel.url,
             contentfulModel.isEmail,
             contentfulModel.email,
+            contentfulModel.isExternalLink
         );
     }
 

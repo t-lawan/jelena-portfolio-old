@@ -41,11 +41,7 @@ const Footer = props => {
     {
       title: "Jelena Viskovic",
       slug: "/",
-    },
-    {
-      title: "About",
-      slug: "/about",
-    },
+    }
   ]
   return (
     <FooterWrapper>
