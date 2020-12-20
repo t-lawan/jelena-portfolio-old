@@ -43,13 +43,10 @@ const Links = props => {
   sidebarLinks = sidebarLinks.sort((a, b) => {
       return a.order - b.order;
   });
-
-  console.log("sidebar", sidebarLinks);
   return (
     <LinkWrapper hideInMobile={props.hideInMobile}>
       {sidebarLinks.map((li, index) => (
-        li.isExternalLink ? <ExternalLink showinmob={true} href={li.isEmail ? `mailto:${li.email}` : li.url} target="__blank" key={index}> {li.title} </ExternalLink> : <InternalLink key={index} to={li.url}> {li.title}</InternalLink>
-        
+        li.isExternalLink ? <ExternalLink showinmob={true} href={li.isEmail ? `mailto:${li.email}` : li.url} target="__blank" key={index}> {li.title} </ExternalLink> : <InternalLink key={index} to={li.url}> {li.title}</InternalLink>    
       ))}
     </LinkWrapper>
   )
