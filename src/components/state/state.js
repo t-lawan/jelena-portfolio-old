@@ -30,7 +30,7 @@ const State = props => {
               title
               url
               isEmail
-              email
+              isExternalLink
             }
           }
         }
@@ -91,7 +91,6 @@ const State = props => {
       Convert.toSidebarLinkModel
     )
     props.setSidebarLinks(sidebarLinks)
-
 
     props.loaded()
   }
