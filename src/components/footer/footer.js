@@ -11,6 +11,7 @@ const FooterWrapper = styled.footer`
     padding: 0;
   }
   padding-top: 1rem;
+  padding-left: 0rem;
   bottom: 0;
   position: fixed;
   width: 100vw;
