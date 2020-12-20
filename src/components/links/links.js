@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { connect } from "react-redux"
 import { size } from "../../index.styles";
+import { Link } from "gatsby";
 
 const LinkWrapper = styled.div`
   padding: 1rem;
@@ -26,15 +27,28 @@ const ExternalLink = styled.a`
     }
 `
 
+const InternalLink = styled(Link)`
+    padding-top: 2rem;
+    transform: rotate(90deg);
+    font-size: 1.1rem;
+    @media (max-width: ${size.tablet}) {
+      transform: rotate(0deg);
+      font-size: 1.2rem;
+      display: ${props => (props.showinmob ? "inherit" : "none")};
+    }
+`
+
 const Links = props => {
   let sidebarLinks = props.sidebarLinks;
   sidebarLinks = sidebarLinks.sort((a, b) => {
       return a.order - b.order;
   });
+
+  console.log("sidebar", sidebarLinks);
   return (
     <LinkWrapper hideInMobile={props.hideInMobile}>
       {sidebarLinks.map((li, index) => (
-        li.isExternalLink ? <ExternalLink showinmob={true} href={li.isEmail ? `mailto:${li.email}` : li.url} target="__blank" key={index}> {li.title} </ExternalLink> : <p> {li.title}</p>
+        li.isExternalLink ? <ExternalLink showinmob={true} href={li.isEmail ? `mailto:${li.email}` : li.url} target="__blank" key={index}> {li.title} </ExternalLink> : <InternalLink to={li.url}> {li.title}</InternalLink>
         
       ))}
     </LinkWrapper>

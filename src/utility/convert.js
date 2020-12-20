@@ -45,7 +45,7 @@ export class Convert {
             contentfulModel.contentful_id,
             contentfulModel.order,
             contentfulModel.title,
-            contentfulModel.url,
+            contentfulModel.isExternalLink ? contentfulModel.url : '/about',
             contentfulModel.isEmail,
             contentfulModel.email,
             contentfulModel.isExternalLink

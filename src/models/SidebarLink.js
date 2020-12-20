@@ -1,7 +1,6 @@
 export class SidebarLink {
     id;
     order;
-    externalLink;
     title;
     url;
     isEmail;
