@@ -18,7 +18,7 @@ const LinkWrapper = styled.div`
 const ExternalLink = styled.a`
     padding-top: 2rem;
     transform: rotate(90deg);
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     @media (max-width: ${size.tablet}) {
       transform: rotate(0deg);
       font-size: 1.2rem;

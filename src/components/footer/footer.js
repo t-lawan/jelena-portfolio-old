@@ -26,7 +26,7 @@ const FooterLinkContainer = styled.div`
 `
 
 const FooterLink = styled(Link)`
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   font-style: italic;
   mix-blend-mode: difference;
   margin-right: 1.5rem;

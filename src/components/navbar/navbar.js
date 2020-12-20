@@ -27,7 +27,7 @@ const NavbarTitleContainer = styled.div`
 `
 
 const NavbarLink = styled(Link)`
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   margin-right: 1rem;
   @media (max-width: ${size.tablet}) {
     font-size: 1.2rem;

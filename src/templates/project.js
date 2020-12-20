@@ -38,6 +38,7 @@ const ImageWrapper = styled.div`
 const ScrollableTextBox = styled.div`
   height: 80vh;
   overflow-y: scroll;
+  overflow-x: hidden;
   padding: 0.5rem;
   ::-webkit-scrollbar {
     width: 7px;

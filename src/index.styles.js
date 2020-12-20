@@ -14,47 +14,47 @@ import BasierSquareMonoSemiBoldItalic from "./assets/BasierSquareMono-SemiBoldIt
 export const GlobalStyle = createGlobalStyle`
 ${'' /* @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i&display=swap'); */}
 @font-face {
-    font-family: 'BasierSquareMono';
+    font-family: BasierSquareMono;
     src: url(${BasierSquareMonoRegular}) format('opentype');
     font-weight: normal;
     font-style: normal;
   }
   @font-face {
-    font-family: 'BasierSquareMono';
+    font-family: BasierSquareMono;
     src: url(${BasierSquareMonoRegularItalic});
     font-weight: normal;
     font-style: italic;
   }
 
   @font-face {
-    font-family: 'BasierSquareMono';
+    font-family: BasierSquareMono;
     src: url(${BasierSquareMonoMedium}) format('opentype');
     font-weight: lighter;
     font-style: normal;
   }
   @font-face {
-    font-family: 'BasierSquareMono';
+    font-family: BasierSquareMono;
     src: url(${BasierSquareMonoMediumItalic}) format('opentype');
     font-weight: lighter;
     font-style: italic;
   }
 
-  @font-face {
-    font-family: 'BasierSquareMono';
+  ${'' /* @font-face {
+    font-family: BasierSquareMono;
     src: url(${BasierSquareMonoBold}) format('opentype');
     font-weight: bolder;
     font-style: normal;
   }
 
   @font-face {
-    font-family: 'BasierSquareMono';
+    font-family: BasierSquareMono;
     src: url(${BasierSquareMonoBoldItalic}) format('opentype');
     font-weight: bolder;
     font-style: italic;
   }
 
   @font-face {
-    font-family: 'BasierSquareMono';
+    font-family: BasierSquareMono;
     src: url(${BasierSquareMonoSemiBold}) format('opentype');
     font-weight: bold;
     font-style: normal;
@@ -66,7 +66,7 @@ ${'' /* @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400
     src: url(${BasierSquareMonoSemiBoldItalic}) format('opentype');
     font-weight: bold;
     font-style: italic;
-  }
+  } */}
 
 
     * {
@@ -74,7 +74,7 @@ ${'' /* @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400
 }
 html,
 body {
-  font-family: 'BasierSquareMono',Fallback, sans-serif;
+  font-family: BasierSquareMono,Fallback, sans-serif;
   width: 100vw;
   width: 100%;
   height: 100%;
@@ -108,7 +108,7 @@ h2 {
 }
 h3 {
   margin-bottom: 1.45rem;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   line-height: 1.1;
 }
 h4 {
@@ -145,8 +145,10 @@ p{
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  font-size: 1.15em;
-  line-height: 1.3;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  font-weight: lighter;
+    font-style: normal;
 }
 li {
   list-style-type: lower-roman;
