@@ -42,6 +42,7 @@ class ImageCarousel extends React.Component{
                 dynamicHeight={true}
                 showStatus={false}
                 showThumbs={false}
+                showIndicators={false}
             >
                 {this.props.images.map((im, index) => (
                     <Image isLandscape={im.fluid.aspectRatio > 1} key={index} fluid={im.fluid} />
