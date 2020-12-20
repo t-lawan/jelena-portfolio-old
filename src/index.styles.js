@@ -146,7 +146,7 @@ p{
   padding-right: 0;
   padding-top: 0;
   font-size: 0.9rem;
-  line-height: 1.6;
+  line-height: 1.8;
   font-weight: lighter;
     font-style: normal;
 }
