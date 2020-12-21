@@ -49,17 +49,19 @@ const State = props => {
           }
         }
         allContentfulPages {
-          edges {
-            node {
-              contentful_id
-              title
-              slug
-              content {
-                json
+            edges {
+              node {
+                id
+                title
+                slug
+                content {
+                  json
+                }
+                showVideo
+                videoUrl
               }
             }
           }
-        }
       }
     `
   )

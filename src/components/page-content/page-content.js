@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { richTextOptions } from "../../utility/richtext"
 import { size } from "../../index.styles";
+import VideoPlayer from "../video-player/video-player";
 
 export const PageWrapper = styled.div`
   margin: 2rem 0;
@@ -21,6 +22,7 @@ const PageContent = props => {
       {page.content
         ? documentToReactComponents(page.content.json, richTextOptions)
         : null}
+      {page.show_video ? <VideoPlayer url={page.video_url} /> : null}
     </PageWrapper>
   )
 }

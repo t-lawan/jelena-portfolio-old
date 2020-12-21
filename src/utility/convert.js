@@ -71,7 +71,9 @@ export class Convert {
             contentfulModel.contentful_id,
             contentfulModel.title,
             contentfulModel.slug,
-            contentfulModel.content
+            contentfulModel.content,
+            contentfulModel.showVideo,
+            contentfulModel.videoUrl
         )
     }
 
