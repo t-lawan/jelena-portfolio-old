@@ -85,6 +85,7 @@ class ImageCarousel extends React.Component {
           showStatus={false}
           showThumbs={false}
           showIndicators={false}
+          showStatus={false}
           showArrows={false}
           autoPlay={true}
           stopOnHover={true}

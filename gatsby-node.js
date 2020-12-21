@@ -53,7 +53,8 @@ exports.createPages = ({ graphql, actions }) => {
                 content {
                   json
                 }
-                
+                showVideo
+                videoUrl
               }
             }
           }
