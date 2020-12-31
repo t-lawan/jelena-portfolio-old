@@ -8,12 +8,16 @@ import BasierSquareMonoMediumItalic from "./assets/BasierSquareMono-MediumItalic
 import BasierSquareMonoRegular from "./assets/BasierSquareMono-Regular.otf"
 import BasierSquareMonoRegularItalic from "./assets/BasierSquareMono-RegularItalic.otf"
 
-import BasierSquareMonoSemiBold from "./assets/BasierSquareMono-SemiBold.otf"
-import BasierSquareMonoSemiBoldItalic from "./assets/BasierSquareMono-SemiBoldItalic.otf"
+import SerifTestBoldItalic from './assets/untitled-serif-test-bold-italic.woff';
+import SerifTestBold from './assets/untitled-serif-test-bold.woff';
+import SerifTestMediumItalic from './assets/untitled-serif-test-medium-italic.woff';
+import SerifTestMedium from './assets/untitled-serif-test-medium.woff';
+import SerifTestRegularItalic from './assets/untitled-serif-test-regular-italic.woff';
+import SerifTestRegular from './assets/untitled-serif-test-regular.woff';
 
 export const GlobalStyle = createGlobalStyle`
 ${'' /* @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i&display=swap'); */}
-@font-face {
+${'' /* @font-face {
     font-family: BasierSquareMono;
     src: url(${BasierSquareMonoRegular}) format('opentype');
     font-weight: normal;
@@ -37,6 +41,34 @@ ${'' /* @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400
     src: url(${BasierSquareMonoMediumItalic}) format('opentype');
     font-weight: lighter;
     font-style: italic;
+  } */}
+
+  @font-face {
+    font-family: SerifTest;
+    src: url(${SerifTestRegular}) format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: SerifTest;
+    src: url(${SerifTestRegularItalic}) format('woff');
+    font-weight: normal;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: SerifTest;
+    src: url(${SerifTestBold}) format('woff');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: SerifTest;
+    src: url(${SerifTestBoldItalic}) format('woff');
+    font-weight: bold;
+    font-style: normal;
   }
 
   ${'' /* @font-face {
@@ -74,7 +106,7 @@ ${'' /* @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400
 }
 html,
 body {
-  font-family: BasierSquareMono,Fallback, sans-serif;
+  font-family: SerifTest,Fallback, sans-serif;
   width: 100vw;
   width: 100%;
   height: 100%;

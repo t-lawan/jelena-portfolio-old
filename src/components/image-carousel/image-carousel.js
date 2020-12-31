@@ -32,14 +32,14 @@ const Image = styled(Img)`
   img {
     object-fit: ${props =>
       props.isLandscape ? "cover !important" : "contain !important"};
-    max-height: 650px;
+    max-height: 400px !important;
     display: block;
     margin: 0 auto;
   }
   > picture > img {
     object-fit: ${props =>
       props.isLandscape ? "cover !important" : "contain !important"};
-    max-height: 650px;
+    max-height: 400px !important;
     display: block;
     margin: 0 auto;
     /* position: relative; */
