@@ -20,30 +20,30 @@ exports.createPages = ({ graphql, actions }) => {
     `
       {
         allContentfulProjects {
-            edges {
-              node {
-                contentful_id
-                title
-                slug
-                displayDescriptions
-                displayImages
-                displayVideo
-                images {
-                  fluid {
-                    base64
-                    aspectRatio
-                    src
-                    srcSet
-                    sizes
-                  }
+          edges {
+            node {
+              contentful_id
+              title
+              slug
+              displayDescriptions
+              displayImages
+              displayVideo
+              images {
+                fluid(quality: 100, maxWidth: 2000) {
+                  base64
+                  aspectRatio
+                  src
+                  srcSet
+                  sizes
                 }
-                description {
-                  json
-                }
-                vimeoId
               }
+              description {
+                json
+              }
+              vimeoId
             }
           }
+        }
           allContentfulPages {
             edges {
               node {

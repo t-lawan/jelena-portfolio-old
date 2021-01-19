@@ -8,6 +8,7 @@ const initalState = {
   navbar_links: [],
   jumbotron_content: [],
   modal_content: ModalTypes.CONTACT,
+  image_fluid: null,
   isLoaded: false,
   show_mobile_modal: false,
 }
@@ -33,12 +34,14 @@ const reducer = (state = initalState, action) => {
     case ActionTypes.SHOW_MOBILE_MODAL:
       return Object.assign({}, state, {
         show_mobile_modal: true,
-        modal_content: action.content
+        modal_content: action.content,
+        image_fluid: action.image_fluid
       })
     case ActionTypes.HIDE_MOBILE_MODAL:
       return Object.assign({}, state, {
         show_mobile_modal: false,
-        modal_content: ''
+        modal_content: '',
+        image_fluid: ''
       })
     case ActionTypes.TOGGLE_MOBILE_MODAL:
       return Object.assign({}, state, {

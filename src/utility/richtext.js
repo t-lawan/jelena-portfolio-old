@@ -28,5 +28,6 @@ export const richTextOptions = {
 
 export const ModalTypes = {
   PROJECTS: 'PROJECTS',
-  CONTACT: 'CONTACT'
+  CONTACT: 'CONTACT',
+  IMAGE: "IMAGE"
 }
