@@ -4,16 +4,15 @@ import { connect } from "react-redux"
 import { size } from "../../index.styles"
 import * as ActionTypes from "../../store/actions"
 import { HamburgerBoring } from "react-animated-burgers"
-import Links from "../links/links";
-import { ModalTypes } from "../../utility/richtext";
-import ProjectLinks from "../links/project-links";
+import Links from "../links/links"
+import { ModalTypes } from "../../utility/richtext"
+import ProjectLinks from "../links/project-links"
 import Img from "gatsby-image"
-
 
 const ModalWrapper = styled.div`
   position: fixed;
   top: 0;
-  background: rgb(242,242,242);
+  background: rgb(242, 242, 242);
   left: 0;
   z-index: 1500;
   height: 100%;
@@ -27,20 +26,26 @@ const ModalWrapper = styled.div`
 `
 
 const ImageWrapper = styled.div`
-    height: 90vh;
-    width: 90vw;
-    top: 0;
-    left: 0;
-    @media (max-width: ${size.tablet}) {
-      display: none;
-    }
-
+  height: 90vh;
+  width: 90vw;
+  top: 0;
+  left: 0;
+  @media (max-width: ${size.tablet}) {
+    /* height: auto; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
 `
 
 const Image = styled(Img)`
   /* position: fixed !important; */
   width: 90vw;
   height: 100vh;
+  @media (max-width: ${size.tablet}) {
+    height: auto;
+  }
   img {
     object-fit: ${props =>
       props.isLandscape ? "cover !important" : "contain !important"};
@@ -56,7 +61,6 @@ const Image = styled(Img)`
   }
 `
 
-
 const Hamburger = styled(HamburgerBoring)`
   /* display: none;   */
   float: right;
@@ -71,24 +75,23 @@ const Hamburger = styled(HamburgerBoring)`
   }
 `
 const Modal = props => {
-  let fluid = props.image_fluid ? JSON.parse(props.image_fluid) : null;
+  let fluid = props.image_fluid ? JSON.parse(props.image_fluid) : null
   return (
     <ModalWrapper showinmob={props.show_mobile_modal}>
-        <Hamburger
-          toggleButton={props.toggleMobileModal}
-          showinmob={true}
-          isActive={props.show_mobile_modal}
-          barColor="black"
-          buttonWidth={30}
-        />
-        {props.modal_content === ModalTypes.CONTACT ?  <Links /> : null}
-        {props.modal_content === ModalTypes.PROJECTS ?  <ProjectLinks /> : null}
-        {props.modal_content === ModalTypes.IMAGE ?  
-        (
-          <ImageWrapper>
-            <Image isLandscape={fluid.aspectRatio > 1} fluid={fluid} />
+      <Hamburger
+        toggleButton={props.toggleMobileModal}
+        showinmob={true}
+        isActive={props.show_mobile_modal}
+        barColor="black"
+        buttonWidth={30}
+      />
+      {props.modal_content === ModalTypes.CONTACT ? <Links /> : null}
+      {props.modal_content === ModalTypes.PROJECTS ? <ProjectLinks /> : null}
+      {props.modal_content === ModalTypes.IMAGE ? (
+        <ImageWrapper>
+          <Image isLandscape={fluid.aspectRatio > 1} fluid={fluid} />
         </ImageWrapper>
-        ) : null}
+      ) : null}
     </ModalWrapper>
   )
 }
@@ -97,7 +100,7 @@ const mapStateToProps = state => {
   return {
     show_mobile_modal: state.show_mobile_modal,
     modal_content: state.modal_content,
-    image_fluid: state.image_fluid
+    image_fluid: state.image_fluid,
   }
 }
 
