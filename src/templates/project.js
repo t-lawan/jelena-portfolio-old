@@ -33,6 +33,10 @@ const ImageWrapper = styled.div`
   width: 100%;
   height: auto;
   padding: 1rem;
+
+  @media (max-width: ${size.tablet}) {
+    padding: 0rem;
+  }
 `
 
 const ScrollableTextBox = styled.div`

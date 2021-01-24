@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
-import { GlobalStyle, TwoColumnSection } from "../../index.styles";
+import { GlobalStyle, TwoColumnSection, size } from "../../index.styles";
 import State from "../state/state";
 import Modal from "../modal/modal";
 import Links from "../links/links";
@@ -18,6 +18,9 @@ const LayoutWrapper = styled.div`
 
 const MainWrapper = styled.main`
     padding: 0.5rem; 
+    @media (max-width: ${size.tablet}) {
+        padding-bottom: 5rem;
+    }
 `
 
 const Section = styled.div`
